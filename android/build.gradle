@@ -1,0 +1,41 @@
+group 'com.yellow.ai.ymchat_flutter'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 30
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+}
+
+dependencies {
+    implementation 'com.github.yellowmessenger:YMChatbot-Android:v1.4.2'
+}
