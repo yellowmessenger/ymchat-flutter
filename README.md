@@ -1,4 +1,4 @@
-# ymchat_flutter
+# ymchat-flutter
 
 Flutter plugin to integrate with yellow.ai chatbot
 
