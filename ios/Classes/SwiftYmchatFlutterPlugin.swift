@@ -79,7 +79,6 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         
         ymConfig = YMConfig(botId: botId);
         
-        
         result(true);
     }
     private static func setDeviceToken(call: FlutterMethodCall, result: FlutterResult)
