@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
     YmChat.showCloseButton(true);
     YmChat.setEnableHistory(true);
 
-    EventChannel _ymEventChannel = const EventChannel("YmChatEvent");
+    EventChannel _ymEventChannel = const EventChannel("YMChatEvent");
     _ymEventChannel.receiveBroadcastStream().listen((event) {
       Map ymEvent = event;
       log("${ymEvent['code']} : ${ymEvent['data']}");
