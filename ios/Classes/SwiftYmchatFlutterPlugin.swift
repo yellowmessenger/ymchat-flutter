@@ -108,7 +108,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             result(true);
         }
         else{
-            assert(false, "payload not found");
+            fatalError("payload not found");
         }
     }
     private static func startChatbot( result: FlutterResult){
@@ -131,7 +131,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             return param!;
         }
         else{
-            assert(false, "\(parameter) value not found");
+            fatalError("\(parameter) value not found");
         }
     }
     
@@ -162,7 +162,7 @@ class YmChatFlutterStreamHandler: NSObject,FlutterStreamHandler {
             }
         }
         else{
-            assert(false, "Event sink is missing to emmit event");
+            fatalError("Event sink is missing to emmit event");
         }
     }
 }
