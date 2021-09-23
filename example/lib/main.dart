@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
     YmChat.setBotId("x1597301712805");
     YmChat.setPayload({"integration": "Flutter"});
     YmChat.showCloseButton(true);
-    YmChat.setEnableHistory(true);
+    YmChat.setEnableSpeech(true);
 
     EventChannel _ymEventChannel = const EventChannel("YMChatEvent");
     _ymEventChannel.receiveBroadcastStream().listen((event) {

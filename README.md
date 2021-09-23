@@ -1,7 +1,5 @@
 # ymchat-flutter
 
-Flutter plugin to integrate with yellow.ai chatbot
-
 ## Documentation
 
 For integration and usage refer documentation [https://docs.yellow.ai/docs/platform_concepts/channelConfiguration/flutter](https://docs.yellow.ai/docs/platform_concepts/channelConfiguration/flutter)

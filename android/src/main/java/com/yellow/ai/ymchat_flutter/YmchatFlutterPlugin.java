@@ -15,9 +15,11 @@ import io.flutter.plugin.common.MethodChannel.Result;
 
 /** YmchatFlutterPlugin */
 public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
-  /// The MethodChannel that will the communication between Flutter and native Android
+  /// The MethodChannel that will the communication between Flutter and native
+  /// Android
   ///
-  /// This local reference serves to register the plugin with the Flutter Engine and unregister it
+  /// This local reference serves to register the plugin with the Flutter Engine
+  /// and unregister it
   /// when the Flutter Engine is detached from the Activity
   private MethodChannel methodChannel;
 
@@ -54,9 +56,6 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
         break;
       case "setEnableSpeech":
         setEnableSpeech(call, result);
-        break;
-      case "setEnableHistory":
-        setEnableHistory(call, result);
         break;
       case "setAuthenticationToken":
         setAuthenticationToken(call, result);
@@ -104,12 +103,6 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
   public void setEnableSpeech(MethodCall call, Result result) {
     Boolean shouldEnableSpeech = call.argument("shouldEnableSpeech");
     ymChatService.setEnableSpeech(shouldEnableSpeech);
-    result.success(true);
-  }
-
-  public void setEnableHistory(MethodCall call, Result result) {
-    Boolean shouldEnableHistory = call.argument("shouldEnableHistory");
-    ymChatService.setEnableHistory(shouldEnableHistory);
     result.success(true);
   }
 

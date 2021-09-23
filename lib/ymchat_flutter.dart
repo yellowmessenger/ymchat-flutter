@@ -23,12 +23,6 @@ class YmChat {
     return isSpeechEnabled;
   }
 
-  static Future<bool> setEnableHistory(bool shouldEnableHistory) async {
-    bool isHistoryEnabled = await _channel.invokeMethod(
-        'setEnableHistory', {"shouldEnableHistory": shouldEnableHistory});
-    return isHistoryEnabled;
-  }
-
   static Future<bool> setAuthenticationToken(String authenticationToken) async {
     bool isAuthenticationTokenAssigned = await _channel.invokeMethod(
         'setAuthenticationToken', {"authenticationToken": authenticationToken});
