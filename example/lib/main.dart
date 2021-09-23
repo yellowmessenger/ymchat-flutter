@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            YmchatFlutter.startChatbot();
+            YmChat.startChatbot();
           },
           child: const Icon(Icons.message),
         ),
@@ -40,12 +40,12 @@ class _MyAppState extends State<MyApp> {
   }
 
   void initilizeChatbot() {
-    YmchatFlutter.setBotId("x1597301712805");
-    YmchatFlutter.setPayload({"integration": "Flutter"});
-    YmchatFlutter.showCloseButton(true);
-    YmchatFlutter.setEnableHistory(true);
+    YmChat.setBotId("x1597301712805");
+    YmChat.setPayload({"integration": "Flutter"});
+    YmChat.showCloseButton(true);
+    YmChat.setEnableHistory(true);
 
-    EventChannel _ymEventChannel = const EventChannel("YMChatEvent");
+    EventChannel _ymEventChannel = const EventChannel("YmChatEvent");
     _ymEventChannel.receiveBroadcastStream().listen((event) {
       Map ymEvent = event;
       log("${ymEvent['code']} : ${ymEvent['data']}");

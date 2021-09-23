@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
-class YmchatFlutter {
+class YmChat {
   static const MethodChannel _channel = MethodChannel('com.yellow.ai.ymchat');
 
   static Future<bool> setBotId(String botId) async {
