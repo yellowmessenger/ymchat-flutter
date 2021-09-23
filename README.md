@@ -2,14 +2,11 @@
 
 Flutter plugin to integrate with yellow.ai chatbot
 
-## Getting Started
+## Documentation
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+For integration and usage refer documentation [https://docs.yellow.ai/docs/platform_concepts/channelConfiguration/flutter](https://docs.yellow.ai/docs/platform_concepts/channelConfiguration/flutter)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Demo App
 
+A demo app can be used as a reference to better understand how this SDK can be integrated in the app
+[https://github.com/yellowmessenger/ymchat-flutter-demo](https://github.com/yellowmessenger/ymchat-flutter-demo)
