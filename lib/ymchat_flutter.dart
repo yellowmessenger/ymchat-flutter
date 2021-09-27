@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:developer';
+import 'dart:ffi';
 
 import 'package:flutter/services.dart';
 
@@ -55,5 +57,21 @@ class YmChat {
   static Future<bool> closeBot() async {
     bool isBotClosed = await _channel.invokeMethod('closeBot');
     return isBotClosed;
+  }
+
+  static Future<void> unLinkDeviceToken(
+      String botId,
+      String apiKey,
+      String deviceToken,
+      Function successCallback,
+      Function failureCallback) async {
+    String unLinkDeviceTokenResult = await _channel.invokeMethod(
+        'unLinkDeviceToken',
+        {'botId': botId, 'apiKey': apiKey, 'deviceToken': deviceToken});
+    if (unLinkDeviceTokenResult == true) {
+      successCallback();
+    } else {
+      failureCallback(unLinkDeviceTokenResult);
+    }
   }
 }

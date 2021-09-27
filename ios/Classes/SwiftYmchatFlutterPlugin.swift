@@ -22,7 +22,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         registrar.addMethodCallDelegate(instance, channel: channel)
         
         channel.setMethodCallHandler({
-            (call: FlutterMethodCall, result: FlutterResult) -> Void in
+            (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
             switch(call.method){
             case "setBotId":
                 self.setBotId(call: call,result: result, ymEventChannel: ymEventChannel, ymCloseEventChannel:ymCloseEventChannel);
@@ -51,6 +51,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "closeBot":
                 self.closeBot(result:result);
                 return;
+            case "unLinkDeviceToken":
+                self.unLinkDeviceToken(call: call,result:result)
+            return;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -132,6 +135,18 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         }
         else{
             fatalError("\(parameter) value not found");
+        }
+    }
+    
+    private static func unLinkDeviceToken(call: FlutterMethodCall, result: @escaping FlutterResult)
+    {
+        let botId:String = getRequiredParamater(parameter: "botId", call: call);
+        let apiKey:String  = getRequiredParamater(parameter: "apiKey", call: call);
+        let deviceToken:String = getRequiredParamater(parameter: "deviceToken", call: call);
+        YMChat.shared.unlinkDeviceToken(botId: botId, apiKey: apiKey, deviceToken: deviceToken) {
+           result(true);
+        } failure: { (failureMessage:String) -> Void in
+            result(failureMessage);
         }
     }
     
