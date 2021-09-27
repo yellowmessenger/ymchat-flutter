@@ -1,3 +1,4 @@
-## 1.0.0
+## 1.1.0
 
-- TODO: Describe initial release.
+- Removed enableHistory API
+- Added UnLinkDeviceToken API
