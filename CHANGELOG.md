@@ -1,4 +1,4 @@
-## 1.1.0
+## 1.1.1
 
 - Removed enableHistory API
 - Added UnLinkDeviceToken API
