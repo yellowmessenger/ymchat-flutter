@@ -80,6 +80,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "unLinkDeviceToken":
                 unLinkDeviceToken(call, result);
                 break;
+            case "setVersion":
+                setVersion(call, result);
+                break;
         }
     }
 
@@ -139,6 +142,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
         String apiKey = call.argument("apiKey");
         String deviceToken = call.argument("deviceToken");
         ymChatService.unLinkDeviceToken(botId, apiKey, deviceToken, call, result);
+    }
+
+    private void setVersion(MethodCall call, Result result) {
+        int version= call.argument("version");
+        ymChatService.setVersion(version);
+        result.success(true);
     }
 
     @Override

@@ -52,6 +52,9 @@ class _MyAppState extends State<MyApp> {
     // Enabling voice input
     YmChat.setEnableSpeech(true);
 
+    // using new widget
+    YmChat.setVersion(2);
+
     // Listening to bot events
     EventChannel _ymEventChannel = const EventChannel("YMChatEvent");
     _ymEventChannel.receiveBroadcastStream().listen((event) {

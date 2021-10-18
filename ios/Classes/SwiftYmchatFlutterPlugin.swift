@@ -54,6 +54,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "unLinkDeviceToken":
                 self.unLinkDeviceToken(call: call,result:result)
             return;
+            case "setVersion":
+                self.setVersion(call:call, result:result);
+                return;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -149,6 +152,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             result(failureMessage);
         }
     }
+
+    private static func setVersion(call: FlutterMethodCall, result: FlutterResult){
+        let version:Int = getRequiredParamater(parameter: "version", call: call);
+        ymConfig?.version = version;
+        result(true);
+    }    
     
 }
 

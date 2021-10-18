@@ -135,5 +135,9 @@ public class YmChatService {
     public void setPayload(HashMap<String, Object> payload) {
         ymChat.config.payload.putAll(payload);
     }
+
+    public void setVersion(int version) {
+        ymChat.config.version = version;
+    }
 }
 
