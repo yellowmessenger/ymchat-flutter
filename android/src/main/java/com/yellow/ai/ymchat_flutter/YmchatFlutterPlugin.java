@@ -83,6 +83,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "setVersion":
                 setVersion(call, result);
                 break;
+            default:
+                result.notImplemented();
+                break;
         }
     }
 
