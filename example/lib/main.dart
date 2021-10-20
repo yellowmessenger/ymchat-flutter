@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
 
   void initilizeChatbot() {
     // Initializing chatbot id to work with in the SDK
-    YmChat.setBotId("x1597301712805");
+    YmChat.setBotId("x1625119673009");
 
     // Adding payload to communicate with chatbot
     YmChat.setPayload({"integration": "Flutter"});
