@@ -74,4 +74,10 @@ class YmChat {
       failureCallback(unLinkDeviceTokenResult);
     }
   }
+
+  static Future<bool> setVersion(int version) async {
+    bool isVersionAssigned =
+        await _channel.invokeMethod('setVersion', {"version": version});
+    return isVersionAssigned;
+  }
 }

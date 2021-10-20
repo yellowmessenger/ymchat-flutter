@@ -1,4 +1,3 @@
-## 1.1.1
+## 1.2.0
 
-- Removed enableHistory API
-- Added UnLinkDeviceToken API
+- Added v2 widget support

@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
 
   void initilizeChatbot() {
     // Initializing chatbot id to work with in the SDK
-    YmChat.setBotId("x1597301712805");
+    YmChat.setBotId("x1625119673009");
 
     // Adding payload to communicate with chatbot
     YmChat.setPayload({"integration": "Flutter"});
@@ -51,6 +51,9 @@ class _MyAppState extends State<MyApp> {
 
     // Enabling voice input
     YmChat.setEnableSpeech(true);
+
+    // using new widget
+    YmChat.setVersion(2);
 
     // Listening to bot events
     EventChannel _ymEventChannel = const EventChannel("YMChatEvent");
