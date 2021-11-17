@@ -65,7 +65,7 @@ class YmChat {
       String deviceToken,
       Function successCallback,
       Function failureCallback) async {
-    String unLinkDeviceTokenResult = await _channel.invokeMethod(
+    dynamic unLinkDeviceTokenResult = await _channel.invokeMethod(
         'unLinkDeviceToken',
         {'botId': botId, 'apiKey': apiKey, 'deviceToken': deviceToken});
     if (unLinkDeviceTokenResult == true) {
