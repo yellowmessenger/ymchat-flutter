@@ -1,3 +1,4 @@
-## 1.2.0
+## 1.2.1
 
-- Added v2 widget support
+- Updated iOS podspec file
+- Fixed unlink device token API
