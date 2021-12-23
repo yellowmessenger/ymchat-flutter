@@ -158,7 +158,7 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
     public void setCustomLoaderURL(MethodCall call, Result result) {
         String customURL = call.argument("customLoaderURL");
-        ymChatService.customLoaderUrl(customURL);
+        ymChatService.setCustomLoaderUrl(customURL);
         result.success(true);
     }
 
