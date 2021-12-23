@@ -80,4 +80,10 @@ class YmChat {
         await _channel.invokeMethod('setVersion', {"version": version});
     return isVersionAssigned;
   }
+
+  static Future<bool> setCustomLoaderURL(String customURL) async {
+    bool isCustomLoaderURLSet = await _channel
+        .invokeMethod('setCustomLoaderURL', {"customLoaderURL": customURL});
+    return isCustomLoaderURLSet;
+  }
 }
