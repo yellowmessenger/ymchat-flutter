@@ -1,4 +1,3 @@
-## 1.2.1
+## 1.3.0
 
-- Updated iOS podspec file
-- Fixed unlink device token API
+- Added setCustomLoaderURL API (for setting custom loading image for chatbot)
