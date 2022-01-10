@@ -57,6 +57,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setVersion":
                 self.setVersion(call:call, result:result);
                 return;
+            case "setCustomLoaderURL":
+                self.setCustomLoaderURL(call:call,result:result);
+                return;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -158,6 +161,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         ymConfig?.version = version;
         result(true);
     }    
+
+     private static func setCustomLoaderURL(call: FlutterMethodCall, result: FlutterResult){
+        let customURL:String = getRequiredParamater(parameter: "customLoaderURL", call: call)
+        ymConfig?.customLoaderUrl = customURL;
+        result(true);
+    }
     
 }
 
