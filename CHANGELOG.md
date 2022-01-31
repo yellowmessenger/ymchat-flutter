@@ -1,3 +1,28 @@
+## 1.3.1
+
+- Handling null event handlers
+
 ## 1.3.0
 
 - Added setCustomLoaderURL API (for setting custom loading image for chatbot)
+
+## 1.2.1
+
+- Fixed unlink device token API
+
+## 1.2.0
+
+- Added v2 widget support
+
+## 1.1.1
+
+- Added dynamic versioning for Android and iOS
+
+# 1.1.0
+
+- Removed enableHistory API
+- Added UnLinkDeviceToken API
+
+# 1.0.0
+
+- TODO: Describe initial release.
