@@ -1,3 +1,3 @@
-## 1.3.0
+## 1.3.1
 
-- Added setCustomLoaderURL API (for setting custom loading image for chatbot)
+- Handling null event handlers

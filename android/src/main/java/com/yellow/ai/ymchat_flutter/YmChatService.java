@@ -34,7 +34,9 @@ public class YmChatService {
         this.ymEventChannel.setStreamHandler(new EventChannel.StreamHandler() {
             @Override
             public void onListen(Object arguments, EventChannel.EventSink events) {
-                ymEventSink = events;
+                if (ymEventSink != null) {
+                    ymEventSink = events;
+                }
             }
 
             @Override
@@ -56,7 +58,6 @@ public class YmChatService {
         });
     }
 
-
     public void setBotId(String botId) {
         ymChat.config = new YMConfig(botId);
         ymChat.config.payload = payloadData;
@@ -75,7 +76,9 @@ public class YmChatService {
         ymChat.onBotClose(new BotCloseEventListener() {
             @Override
             public void onClosed() {
-                closeEventSink.success(true);
+                if (closeEventSink != null) {
+                    closeEventSink.success(true);
+                }
             }
         });
 
@@ -110,7 +113,8 @@ public class YmChatService {
         ymChat.config.showCloseButton = shouldShowCloseButton;
     }
 
-    public void unLinkDeviceToken(String botId, String apiKey, String deviceToken, MethodCall call, MethodChannel.Result result) {
+    public void unLinkDeviceToken(String botId, String apiKey, String deviceToken, MethodCall call,
+            MethodChannel.Result result) {
         try {
             ymChat.unlinkDeviceToken(botId, apiKey, deviceToken, new YellowCallback() {
                 @Override
@@ -144,4 +148,3 @@ public class YmChatService {
         ymChat.config.customLoaderUrl = url;
     }
 }
-
