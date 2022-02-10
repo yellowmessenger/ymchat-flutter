@@ -149,10 +149,10 @@ public class YmChatService {
     }
 
     public void setCloseButtonColour(String colour) {
-        ymChat.config.closeButtonColorHex= colour;
+        ymChat.config.closeButtonColorHex = colour;
     }
 
     public void setStatusBarColour(String colour) {
-        ymChat.config.statusBarColorFromHex= colour;
+        ymChat.config.statusBarColorFromHex = colour;
     }
 }
