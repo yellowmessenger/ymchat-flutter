@@ -86,10 +86,28 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "setCustomLoaderURL":
                 setCustomLoaderURL(call, result);
                 break;
+            case "setStatusBarColour":
+                setStatusBarColour(call, result);
+                break;
+            case "setCloseButtonColour":
+                setCloseButtonColour(call, result);
+                break;
             default:
                 result.notImplemented();
                 break;
         }
+    }
+
+    private void setCloseButtonColour(MethodCall call, Result result) {
+        String colour = call.argument("colour");
+        ymChatService.setCloseButtonColour(colour);
+        result.success(true);
+    }
+
+    private void setStatusBarColour(MethodCall call, Result result) {
+        String colour = call.argument("colour");
+        ymChatService.setStatusBarColour(colour);
+        result.success(true);
     }
 
     public void setBotId(MethodCall call, Result result) {

@@ -1,5 +1,9 @@
 ## 1.3.1
 
+- Added setStatusBarColour, setCloseButtonColour API's (for setting colour to status bar and close button colours respectively)
+
+## 1.3.1
+
 - Handling null event handlers
 
 ## 1.3.0

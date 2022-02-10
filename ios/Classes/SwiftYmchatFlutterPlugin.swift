@@ -60,6 +60,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setCustomLoaderURL":
                 self.setCustomLoaderURL(call:call,result:result);
                 return;
+            case "setStatusBarColour":
+                self.setStatusBarColour(call:call,result:result);
+                return;
+            case "setCloseButtonColour":
+                self.setCloseButtonColour(call:call,result:result);
+                return;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -166,6 +172,40 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         let customURL:String = getRequiredParamater(parameter: "customLoaderURL", call: call)
         ymConfig?.customLoaderUrl = customURL;
         result(true);
+    }
+    
+    private static func setStatusBarColour(call: FlutterMethodCall, result: FlutterResult){
+       let colour:String = getRequiredParamater(parameter: "colour", call: call)
+        ymConfig?.statusBarColor = hexStringToUIColor(hex: colour);
+       result(true);
+   }
+    
+    private static func setCloseButtonColour(call: FlutterMethodCall, result: FlutterResult){
+       let colour:String = getRequiredParamater(parameter: "colour", call: call)
+        ymConfig?.closeButtonColor = hexStringToUIColor(hex: colour);
+       result(true);
+   }
+    
+    private static func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
     
 }
