@@ -87,15 +87,15 @@ class YmChat {
     return isCustomLoaderURLSet;
   }
 
-  static Future<bool> setStatusBarColour(String colour) async {
-    bool isStatusBarColourSet =
-        await _channel.invokeMethod('setStatusBarColour', {"colour": colour});
-    return isStatusBarColourSet;
+  static Future<bool> setStatusBarColor(String color) async {
+    bool isStatusBarColorSet =
+        await _channel.invokeMethod('setStatusBarColor', {"color": color});
+    return isStatusBarColorSet;
   }
 
-  static Future<bool> setCloseButtonColour(String colour) async {
-    bool isCloseButtonColourSet =
-        await _channel.invokeMethod('setCloseButtonColour', {"colour": colour});
-    return isCloseButtonColourSet;
+  static Future<bool> setCloseButtonColor(String color) async {
+    bool isCloseButtonColorSet =
+        await _channel.invokeMethod('setCloseButtonColor', {"color": color});
+    return isCloseButtonColorSet;
   }
 }

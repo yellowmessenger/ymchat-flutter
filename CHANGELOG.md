@@ -1,3 +1,7 @@
+## 1.5.0
+
+- Renamed setStatusBarColour, setCloseButtonColour API to setStatusBarColor, setCloseButtonColor respectively
+
 ## 1.4.0
 
 - Added setStatusBarColour, setCloseButtonColour API's (for setting colour to status bar and close button colours respectively)
