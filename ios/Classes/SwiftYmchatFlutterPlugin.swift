@@ -60,11 +60,11 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setCustomLoaderURL":
                 self.setCustomLoaderURL(call:call,result:result);
                 return;
-            case "setStatusBarColour":
-                self.setStatusBarColour(call:call,result:result);
+            case "setStatusBarColor":
+                self.setStatusBarColor(call:call,result:result);
                 return;
-            case "setCloseButtonColour":
-                self.setCloseButtonColour(call:call,result:result);
+            case "setCloseButtonColor":
+                self.setCloseButtonColor(call:call,result:result);
                 return;
             default:
                 result(FlutterMethodNotImplemented)
@@ -174,15 +174,15 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         result(true);
     }
     
-    private static func setStatusBarColour(call: FlutterMethodCall, result: FlutterResult){
-       let colour:String = getRequiredParamater(parameter: "colour", call: call)
-        ymConfig?.statusBarColor = hexStringToUIColor(hex: colour);
+    private static func setStatusBarColor(call: FlutterMethodCall, result: FlutterResult){
+       let color:String = getRequiredParamater(parameter: "color", call: call)
+        ymConfig?.statusBarColor = hexStringToUIColor(hex: color);
        result(true);
    }
     
-    private static func setCloseButtonColour(call: FlutterMethodCall, result: FlutterResult){
-       let colour:String = getRequiredParamater(parameter: "colour", call: call)
-        ymConfig?.closeButtonColor = hexStringToUIColor(hex: colour);
+    private static func setCloseButtonColor(call: FlutterMethodCall, result: FlutterResult){
+       let color:String = getRequiredParamater(parameter: "color", call: call)
+        ymConfig?.closeButtonColor = hexStringToUIColor(hex: color);
        result(true);
    }
     
