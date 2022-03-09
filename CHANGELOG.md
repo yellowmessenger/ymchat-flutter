@@ -1,3 +1,7 @@
+## 2.0.0
+
+- Fixed corrupted ymAuthenticationToken
+
 ## 1.5.0
 
 - Renamed setStatusBarColour, setCloseButtonColour API to setStatusBarColor, setCloseButtonColor respectively
