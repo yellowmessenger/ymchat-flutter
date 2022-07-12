@@ -1,4 +1,8 @@
-## 2.0.0
+## 2.1.0
+
+- Fixed Unlink Device Token issue
+- Fixed location permission issue for android
+- Removed internal SDK permissions for android (all permission should be added in host app manifest file)## 2.0.0
 
 - Fixed corrupted ymAuthenticationToken
 

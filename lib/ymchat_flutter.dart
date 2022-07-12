@@ -60,11 +60,12 @@ class YmChat {
   }
 
   static Future<void> unLinkDeviceToken(
-      String botId,
-      String apiKey,
-      String deviceToken,
-      Function successCallback,
-      Function failureCallback) async {
+    String botId,
+    String apiKey,
+    String deviceToken,
+    void Function() successCallback,
+    void Function(dynamic) failureCallback,
+  ) async {
     dynamic unLinkDeviceTokenResult = await _channel.invokeMethod(
         'unLinkDeviceToken',
         {'botId': botId, 'apiKey': apiKey, 'deviceToken': deviceToken});
