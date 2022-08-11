@@ -68,7 +68,9 @@ public class YmChatService {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    ymEventSink.success(event);
+                    if (ymEventSink != null) {
+                        ymEventSink.success(event);
+                    }
                 }
             });
         });
@@ -77,7 +79,9 @@ public class YmChatService {
             @Override
             public void onClosed() {
                 if (closeEventSink != null) {
-                    closeEventSink.success(true);
+                    if (closeEventSink = null) {
+                        closeEventSink.success(true);
+                    }
                 }
             }
         });
