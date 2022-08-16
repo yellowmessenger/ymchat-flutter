@@ -79,9 +79,7 @@ public class YmChatService {
             @Override
             public void onClosed() {
                 if (closeEventSink != null) {
-                    if (closeEventSink = null) {
-                        closeEventSink.success(true);
-                    }
+                    closeEventSink.success(true);
                 }
             }
         });
