@@ -34,9 +34,7 @@ public class YmChatService {
         this.ymEventChannel.setStreamHandler(new EventChannel.StreamHandler() {
             @Override
             public void onListen(Object arguments, EventChannel.EventSink events) {
-                if (ymEventSink != null) {
-                    ymEventSink = events;
-                }
+                ymEventSink = events;
             }
 
             @Override
