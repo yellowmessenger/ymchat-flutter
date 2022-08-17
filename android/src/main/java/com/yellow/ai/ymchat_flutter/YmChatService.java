@@ -157,6 +157,6 @@ public class YmChatService {
     }
 
     public void setDisableActionsOnLoad(Boolean shouldDisableActionsOnLoad) {
-        ymChat.config.setDisableActionsOnLoad = shouldDisableActionsOnLoad;
+        ymChat.config.disableActionsOnLoad = shouldDisableActionsOnLoad;
     }
 }
