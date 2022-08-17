@@ -92,10 +92,19 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "setCloseButtonColor":
                 setCloseButtonColor(call, result);
                 break;
+            case "setDisableActionsOnLoad":
+                setDisableActionsOnLoad(call, result);
+                break;
             default:
                 result.notImplemented();
                 break;
         }
+    }
+
+    public void setDisableActionsOnLoad(MethodCall call, Result result) {
+        Boolean shouldDisableActionsOnLoad = call.argument("shouldDisableActionsOnLoad");
+        ymChatService.setDisableActionsOnLoad(shouldDisableActionsOnLoad);
+        result.success(true);
     }
 
     private void setCloseButtonColor(MethodCall call, Result result) {
