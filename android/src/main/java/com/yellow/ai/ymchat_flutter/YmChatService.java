@@ -34,9 +34,7 @@ public class YmChatService {
         this.ymEventChannel.setStreamHandler(new EventChannel.StreamHandler() {
             @Override
             public void onListen(Object arguments, EventChannel.EventSink events) {
-                if (ymEventSink != null) {
-                    ymEventSink = events;
-                }
+                ymEventSink = events;
             }
 
             @Override
@@ -68,7 +66,9 @@ public class YmChatService {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    ymEventSink.success(event);
+                    if (ymEventSink != null) {
+                        ymEventSink.success(event);
+                    }
                 }
             });
         });
