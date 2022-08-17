@@ -66,6 +66,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setCloseButtonColor":
                 self.setCloseButtonColor(call:call,result:result);
                 return;
+            case "setDisableActionsOnLoad":
+                self.setDisableActionsOnLoad(call:call,result:result);
+                return;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -74,7 +77,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             
         });
     }
-    
+
     
     private static func setBotId(call: FlutterMethodCall, result: FlutterResult, ymEventChannel: FlutterEventChannel, ymCloseEventChannel: FlutterEventChannel){
         let botId:String = getRequiredParamater(parameter: "botId", call: call)
@@ -206,6 +209,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+
+    private static func setDisableActionsOnLoad(call: FlutterMethodCall, result: FlutterResult){
+        let shouldDisableActionsOnLoad:Bool = getRequiredParamater(parameter: "shouldDisableActionsOnLoad", call: call)
+        ymConfig?.disableActionsOnLoad = shouldDisableActionsOnLoad;
+        result(true);
     }
     
 }
