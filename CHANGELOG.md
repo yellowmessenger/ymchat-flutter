@@ -1,3 +1,8 @@
+## 2.1.1
+
+- Fixed event sink null pointer issues
+- Added setDisableActionsOnLoad flag, when set to true Input bar will not be shown while bot is loading
+
 ## 2.1.0
 
 - Fixed Unlink Device Token issue
