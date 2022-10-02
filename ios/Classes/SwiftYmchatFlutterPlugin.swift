@@ -69,6 +69,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setDisableActionsOnLoad":
                 self.setDisableActionsOnLoad(call:call,result:result);
                 return;
+            case "useLiteVersion":
+                self.useLiteVersion(call:call,result:result);
+                 return
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -78,6 +81,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         });
     }
 
+
+private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResult){
+        let shouldUseLiteVersion:Bool = getRequiredParamater(parameter: "shouldUseLiteVersion", call: call)
+        ymConfig?.useLiteVersion = shouldUseLiteVersion
+        result(true);
+    }
     
     private static func setBotId(call: FlutterMethodCall, result: FlutterResult, ymEventChannel: FlutterEventChannel, ymCloseEventChannel: FlutterEventChannel){
         let botId:String = getRequiredParamater(parameter: "botId", call: call)
