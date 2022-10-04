@@ -83,7 +83,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             
         });
     }
-    
+
     
     private static func getUnreadMessages(call: FlutterMethodCall, result: @escaping FlutterResult){
         if(ymConfig != nil)
@@ -247,6 +247,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+
+    private static func setDisableActionsOnLoad(call: FlutterMethodCall, result: FlutterResult){
+        let shouldDisableActionsOnLoad:Bool = getRequiredParamater(parameter: "shouldDisableActionsOnLoad", call: call)
+        ymConfig?.disableActionsOnLoad = shouldDisableActionsOnLoad;
+        result(true);
     }
     
     private static func setDisableActionsOnLoad(call: FlutterMethodCall, result: FlutterResult){
