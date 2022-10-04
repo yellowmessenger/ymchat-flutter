@@ -136,6 +136,8 @@ class YmChat {
     } else {
       failureCallback(unReadMessagesResponse);
     }
+  }
+
   static Future<bool> useLiteVersion(bool shouldUseLiteVersion) async {
     bool isUsingLiteVersion = await _channel.invokeMethod(
         'useLiteVersion', {"shouldUseLiteVersion": shouldUseLiteVersion});
