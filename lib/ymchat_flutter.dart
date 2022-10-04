@@ -99,4 +99,18 @@ class YmChat {
         await _channel.invokeMethod('setCloseButtonColor', {"color": color});
     return isCloseButtonColorSet;
   }
+
+  static Future<bool> setDisableActionsOnLoad(
+      bool shouldDisableActionsOnLoad) async {
+    bool isDisableActionsOnLoad = await _channel.invokeMethod(
+        'setDisableActionsOnLoad',
+        {"shouldDisableActionsOnLoad": shouldDisableActionsOnLoad});
+    return isDisableActionsOnLoad;
+  }
+
+  static Future<bool> useLiteVersion(bool shouldUseLiteVersion) async {
+    bool isUsingLiteVersion = await _channel.invokeMethod(
+        'useLiteVersion', {"shouldUseLiteVersion": shouldUseLiteVersion});
+    return isUsingLiteVersion;
+  }
 }
