@@ -75,6 +75,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "registerDevice":
                 self.registerDevice(call:call,result:result);
                 return;
+            case "useLiteVersion":
+                self.useLiteVersion(call:call,result:result);
+                 return
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -84,6 +87,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         });
     }
 
+
+private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResult){
+        let shouldUseLiteVersion:Bool = getRequiredParamater(parameter: "shouldUseLiteVersion", call: call)
+        ymConfig?.useLiteVersion = shouldUseLiteVersion
+        result(true);
+    }
     
     private static func getUnreadMessages(call: FlutterMethodCall, result: @escaping FlutterResult){
         if(ymConfig != nil)

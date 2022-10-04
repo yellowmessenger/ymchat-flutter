@@ -1,3 +1,7 @@
+## 2.1.2
+
+- Added `useLiteVersion` api to use lite version of bot
+
 ## 2.1.1
 
 - Fixed event sink null pointer issues

@@ -100,6 +100,8 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
                 break;
             case "registerDevice":
                 registerDevice(call, result);
+            case "useLiteVersion":
+                useLiteVersion(call, result);
                 break;
             default:
                 result.notImplemented();
@@ -114,6 +116,11 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
     public void getUnreadMessages(MethodCall call, Result result) {
         ymChatService.getUnreadMessages(result);
+    public void useLiteVersion(MethodCall call, Result result)
+    {
+        Boolean shouldUseLiteVersion = call.argument("shouldUseLiteVersion");
+        ymChatService.useLiteVersion(shouldUseLiteVersion);
+        result.success(true);
     }
 
     public void setDisableActionsOnLoad(MethodCall call, Result result) {
