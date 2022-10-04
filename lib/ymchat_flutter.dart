@@ -107,4 +107,10 @@ class YmChat {
         {"shouldDisableActionsOnLoad": shouldDisableActionsOnLoad});
     return isDisableActionsOnLoad;
   }
+
+  static Future<bool> useLiteVersion(bool shouldUseLiteVersion) async {
+    bool isUsingLiteVersion = await _channel.invokeMethod(
+        'useLiteVersion', {"shouldUseLiteVersion": shouldUseLiteVersion});
+    return isUsingLiteVersion;
+  }
 }
