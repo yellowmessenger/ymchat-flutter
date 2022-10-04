@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:developer';
 import 'dart:ffi';
 
@@ -108,6 +109,33 @@ class YmChat {
     return isDisableActionsOnLoad;
   }
 
+  static Future registerDevice(
+    String apiKey,
+    void Function(bool) successCallback,
+    void Function(dynamic) failureCallback,
+  ) async {
+    dynamic unReadMessagesResponse =
+        await _channel.invokeMethod('registerDevice', {'apiKey': apiKey});
+    if (unReadMessagesResponse is bool) {
+      successCallback(unReadMessagesResponse);
+    } else {
+      failureCallback(unReadMessagesResponse);
+    }
+  }
+
+  static Future getUnreadMessages(
+    void Function(String) successCallback,
+    void Function(dynamic) failureCallback,
+  ) async {
+    dynamic unReadMessagesResponse =
+        await _channel.invokeMethod('getUnreadMessages');
+    if (unReadMessagesResponse is String) {
+      successCallback(unReadMessagesResponse);
+    } else if (unReadMessagesResponse is LinkedHashMap) {
+      failureCallback(unReadMessagesResponse["error"]);
+    } else {
+      failureCallback(unReadMessagesResponse);
+    }
   static Future<bool> useLiteVersion(bool shouldUseLiteVersion) async {
     bool isUsingLiteVersion = await _channel.invokeMethod(
         'useLiteVersion', {"shouldUseLiteVersion": shouldUseLiteVersion});

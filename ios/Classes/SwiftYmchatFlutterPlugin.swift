@@ -53,7 +53,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
                 return;
             case "unLinkDeviceToken":
                 self.unLinkDeviceToken(call: call,result:result)
-            return;
+                return;
             case "setVersion":
                 self.setVersion(call:call, result:result);
                 return;
@@ -68,6 +68,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
                 return;
             case "setDisableActionsOnLoad":
                 self.setDisableActionsOnLoad(call:call,result:result);
+                return;
+            case "getUnreadMessages":
+                self.getUnreadMessages(call:call,result:result);
+                return;
+            case "registerDevice":
+                self.registerDevice(call:call,result:result);
                 return;
             case "useLiteVersion":
                 self.useLiteVersion(call:call,result:result);
@@ -86,6 +92,38 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
         let shouldUseLiteVersion:Bool = getRequiredParamater(parameter: "shouldUseLiteVersion", call: call)
         ymConfig?.useLiteVersion = shouldUseLiteVersion
         result(true);
+    }
+    
+    private static func getUnreadMessages(call: FlutterMethodCall, result: @escaping FlutterResult){
+        if(ymConfig != nil)
+        {
+            YMChat.shared.getUnreadMessagesCount(ymConfig: ymConfig!) { unReadMsgs in
+                result(unReadMsgs)
+            } failure: { errorMsg in
+                var failurMsg = [String : String]()
+                failurMsg["error"] = errorMsg
+                result(failurMsg)
+            }
+            
+        }
+        else{
+            result("Bot id not found")
+        }
+    }
+    
+    private static func registerDevice(call: FlutterMethodCall, result: @escaping FlutterResult){
+        if(ymConfig != nil)
+        {
+            let apiKey:String = getRequiredParamater(parameter: "apiKey", call: call)
+            YMChat.shared.registerDevice(apiKey: apiKey, ymConfig: ymConfig!) {
+                result(true)
+            } failure: { failureMsg in
+                result(failureMsg)
+            }
+        }
+        else{
+            result("Bot id not found")
+        }
     }
     
     private static func setBotId(call: FlutterMethodCall, result: FlutterResult, ymEventChannel: FlutterEventChannel, ymCloseEventChannel: FlutterEventChannel){
@@ -168,50 +206,50 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
         let apiKey:String  = getRequiredParamater(parameter: "apiKey", call: call);
         let deviceToken:String = getRequiredParamater(parameter: "deviceToken", call: call);
         YMChat.shared.unlinkDeviceToken(botId: botId, apiKey: apiKey, deviceToken: deviceToken) {
-           result(true);
+            result(true);
         } failure: { (failureMessage:String) -> Void in
             result(failureMessage);
         }
     }
-
+    
     private static func setVersion(call: FlutterMethodCall, result: FlutterResult){
         let version:Int = getRequiredParamater(parameter: "version", call: call);
         ymConfig?.version = version;
         result(true);
-    }    
-
-     private static func setCustomLoaderURL(call: FlutterMethodCall, result: FlutterResult){
+    }
+    
+    private static func setCustomLoaderURL(call: FlutterMethodCall, result: FlutterResult){
         let customURL:String = getRequiredParamater(parameter: "customLoaderURL", call: call)
         ymConfig?.customLoaderUrl = customURL;
         result(true);
     }
     
     private static func setStatusBarColor(call: FlutterMethodCall, result: FlutterResult){
-       let color:String = getRequiredParamater(parameter: "color", call: call)
+        let color:String = getRequiredParamater(parameter: "color", call: call)
         ymConfig?.statusBarColor = hexStringToUIColor(hex: color);
-       result(true);
-   }
+        result(true);
+    }
     
     private static func setCloseButtonColor(call: FlutterMethodCall, result: FlutterResult){
-       let color:String = getRequiredParamater(parameter: "color", call: call)
+        let color:String = getRequiredParamater(parameter: "color", call: call)
         ymConfig?.closeButtonColor = hexStringToUIColor(hex: color);
-       result(true);
-   }
+        result(true);
+    }
     
     private static func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
+        
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
         }
-
+        
         if ((cString.count) != 6) {
             return UIColor.gray
         }
-
+        
         var rgbValue:UInt64 = 0
         Scanner(string: cString).scanHexInt64(&rgbValue)
-
+        
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
@@ -220,6 +258,12 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
         )
     }
 
+    private static func setDisableActionsOnLoad(call: FlutterMethodCall, result: FlutterResult){
+        let shouldDisableActionsOnLoad:Bool = getRequiredParamater(parameter: "shouldDisableActionsOnLoad", call: call)
+        ymConfig?.disableActionsOnLoad = shouldDisableActionsOnLoad;
+        result(true);
+    }
+    
     private static func setDisableActionsOnLoad(call: FlutterMethodCall, result: FlutterResult){
         let shouldDisableActionsOnLoad:Bool = getRequiredParamater(parameter: "shouldDisableActionsOnLoad", call: call)
         ymConfig?.disableActionsOnLoad = shouldDisableActionsOnLoad;
