@@ -200,8 +200,9 @@ public class YmChatService {
         } catch (Exception e) {
             result.error("error in registerDevice", e.getMessage(), e);
         }
-    public void useLiteVersion(Boolean shouldUseLiteVersion)
-    {
+    }
+
+    public void useLiteVersion(Boolean shouldUseLiteVersion) {
         ymChat.config.useLiteVersion = shouldUseLiteVersion;
     }
 }
