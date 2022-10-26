@@ -1,3 +1,8 @@
+## 2.2.0
+
+- Added `getUnreadMessagesCount` api to get unread messages count when bot is closed
+- Added `registerDevice` api to register device for push notification without launching the bot
+
 ## 2.1.2
 
 - Added `useLiteVersion` api to use lite version of bot
