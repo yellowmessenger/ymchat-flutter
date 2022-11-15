@@ -2,7 +2,7 @@
 
 ## Documentation
 
-For integration and usage refer documentation [https://docs.yellow.ai/docs/platform_concepts/channelConfiguration/flutter](https://docs.yellow.ai/docs/platform_concepts/channelConfiguration/flutter)
+For integration and usage refer documentation [https://docs.yellow.ai/docs/platform_concepts/mobile/chatbot/flutter](https://docs.yellow.ai/docs/platform_concepts/mobile/chatbot/flutter)
 
 ## Demo App
 
