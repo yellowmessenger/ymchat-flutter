@@ -3,11 +3,14 @@ package com.yellow.ai.ymchat_flutter;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.yellowmessenger.ymchat.BotCloseEventListener;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
 import com.yellowmessenger.ymchat.models.YellowCallback;
+import com.yellowmessenger.ymchat.models.YellowDataCallback;
+import com.yellowmessenger.ymchat.models.YellowUnreadMessageResponse;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -160,8 +163,46 @@ public class YmChatService {
         ymChat.config.disableActionsOnLoad = shouldDisableActionsOnLoad;
     }
 
-    public void useLiteVersion(Boolean shouldUseLiteVersion)
-    {
+    public void getUnreadMessages(MethodChannel.Result result) {
+        try {
+            ymChat.getUnreadMessagesCount(ymChat.config, new YellowDataCallback() {
+                @Override
+                public <T> void success(T data) {
+                    YellowUnreadMessageResponse response = (YellowUnreadMessageResponse) data;
+                    result.success(response.getUnreadCount());
+                }
+
+                @Override
+                public void failure(String message) {
+                    HashMap<String, String> errorObject = new HashMap<String, String>();
+                    errorObject.put("error", message);
+                    result.success(errorObject);
+                }
+            });
+        } catch (Exception e) {
+            result.error("error in getUnreadMessages", e.getMessage(), e);
+        }
+    }
+
+    public void registerDevice(String apiKey, MethodChannel.Result result) {
+        try {
+            ymChat.registerDevice(apiKey, ymChat.config, new YellowCallback() {
+                @Override
+                public void success() {
+                    result.success(true);
+                }
+
+                @Override
+                public void failure(String message) {
+                    result.success(message);
+                }
+            });
+        } catch (Exception e) {
+            result.error("error in registerDevice", e.getMessage(), e);
+        }
+    }
+
+    public void useLiteVersion(Boolean shouldUseLiteVersion) {
         ymChat.config.useLiteVersion = shouldUseLiteVersion;
     }
 }
