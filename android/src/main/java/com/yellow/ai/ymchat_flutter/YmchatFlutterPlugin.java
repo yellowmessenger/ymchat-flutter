@@ -116,8 +116,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
     public void getUnreadMessages(MethodCall call, Result result) {
         ymChatService.getUnreadMessages(result);
-    public void useLiteVersion(MethodCall call, Result result)
-    {
+    }
+
+    public void useLiteVersion(MethodCall call, Result result) {
         Boolean shouldUseLiteVersion = call.argument("shouldUseLiteVersion");
         ymChatService.useLiteVersion(shouldUseLiteVersion);
         result.success(true);

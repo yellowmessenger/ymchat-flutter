@@ -1,3 +1,11 @@
+## 2.2.2
+
+- Fixed getUnreadMessages API error
+
+## 2.2.1
+
+- Fixed missing declarations for `getUnreadMessagesCount` and `registerDevice` API
+
 ## 2.2.0
 
 - Added `getUnreadMessagesCount` api to get unread messages count when bot is closed
