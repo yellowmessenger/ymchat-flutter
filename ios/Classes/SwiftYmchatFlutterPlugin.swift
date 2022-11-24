@@ -264,12 +264,6 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
         result(true);
     }
     
-    private static func setDisableActionsOnLoad(call: FlutterMethodCall, result: FlutterResult){
-        let shouldDisableActionsOnLoad:Bool = getRequiredParamater(parameter: "shouldDisableActionsOnLoad", call: call)
-        ymConfig?.disableActionsOnLoad = shouldDisableActionsOnLoad;
-        result(true);
-    }
-    
 }
 
 class YmChatFlutterStreamHandler: NSObject,FlutterStreamHandler {
