@@ -1,3 +1,7 @@
+## 2.2.3
+
+- Added try catch around events sinks to handle crash
+
 ## 2.2.2
 
 - Fixed getUnreadMessages API error
