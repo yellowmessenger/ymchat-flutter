@@ -42,7 +42,7 @@ public class YmChatService {
 
             @Override
             public void onCancel(Object arguments) {
-
+                ymEventSink = null;
             }
         });
 
@@ -54,7 +54,7 @@ public class YmChatService {
 
             @Override
             public void onCancel(Object arguments) {
-
+                closeEventSink = null;
             }
         });
     }
@@ -70,7 +70,11 @@ public class YmChatService {
                 @Override
                 public void run() {
                     if (ymEventSink != null) {
-                        ymEventSink.success(event);
+                        try {
+                            ymEventSink.success(event);
+                        } catch (Exception e) {
+
+                        }
                     }
                 }
             });
@@ -80,7 +84,11 @@ public class YmChatService {
             @Override
             public void onClosed() {
                 if (closeEventSink != null) {
-                    closeEventSink.success(true);
+                    try {
+                        closeEventSink.success(true);
+                    } catch (Exception e) {
+
+                    }
                 }
             }
         });
