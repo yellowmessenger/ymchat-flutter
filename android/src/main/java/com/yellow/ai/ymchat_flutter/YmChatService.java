@@ -69,27 +69,27 @@ public class YmChatService {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    if (ymEventSink != null) {
                         try {
-                            ymEventSink.success(event);
+                            if (ymEventSink != null) {
+                                ymEventSink.success(event);
+                            }
                         } catch (Exception e) {
 
                         }
                     }
-                }
             });
         });
 
         ymChat.onBotClose(new BotCloseEventListener() {
             @Override
             public void onClosed() {
-                if (closeEventSink != null) {
                     try {
-                        closeEventSink.success(true);
+                        if (closeEventSink != null) {
+                            closeEventSink.success(true);
+                        }
                     } catch (Exception e) {
 
                     }
-                }
             }
         });
 
