@@ -42,7 +42,7 @@ public class YmChatService {
 
             @Override
             public void onCancel(Object arguments) {
-
+                ymEventSink = null;
             }
         });
 
@@ -54,7 +54,7 @@ public class YmChatService {
 
             @Override
             public void onCancel(Object arguments) {
-
+                closeEventSink = null;
             }
         });
     }
@@ -69,19 +69,27 @@ public class YmChatService {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    if (ymEventSink != null) {
-                        ymEventSink.success(event);
+                        try {
+                            if (ymEventSink != null) {
+                                ymEventSink.success(event);
+                            }
+                        } catch (Exception e) {
+
+                        }
                     }
-                }
             });
         });
 
         ymChat.onBotClose(new BotCloseEventListener() {
             @Override
             public void onClosed() {
-                if (closeEventSink != null) {
-                    closeEventSink.success(true);
-                }
+                    try {
+                        if (closeEventSink != null) {
+                            closeEventSink.success(true);
+                        }
+                    } catch (Exception e) {
+
+                    }
             }
         });
 
