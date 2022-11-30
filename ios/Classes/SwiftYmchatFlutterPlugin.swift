@@ -166,10 +166,10 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
         ymConfig?.customBaseUrl = customURL;
         result(true);
     }
-    private static func setPayload(call: FlutterMethodCall, result: FlutterResult){
-        let payload: Dictionary<String,String>? = getRequiredParamater(parameter: "payload", call: call)
-        if( payload != nil){
-            ymConfig?.payload = payload!;
+ private static func setPayload(call: FlutterMethodCall, result: FlutterResult){
+        let payload: Dictionary<String,Any>? = call.arguments as? Dictionary<String,Any>;
+        if( payload != nil && payload?.keys.contains("payload") == true){
+            ymConfig?.payload = payload?["payload"] as? Dictionary<String,Any> ?? [:];
             result(true);
         }
         else{
