@@ -167,7 +167,7 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
         result(true);
     }
     private static func setPayload(call: FlutterMethodCall, result: FlutterResult){
-        let payload: Dictionary<String,String>? = getRequiredParamater(parameter: "payload", call: call)
+        let payload: Dictionary<String,Any>? = call.arguments as? Dictionary<String,Any>;
         if( payload != nil){
             ymConfig?.payload = payload!;
             result(true);
