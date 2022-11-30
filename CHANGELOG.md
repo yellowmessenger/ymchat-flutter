@@ -1,3 +1,7 @@
+## 2.3.0
+
+- Changed iOS payload nested structure to keep in sync with android (can be accessed in bot by app.profile instead of app.profile.profile)
+
 ## 2.2.3
 
 - Added try catch around events sinks to handle crash
