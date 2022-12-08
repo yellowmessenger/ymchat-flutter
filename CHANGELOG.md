@@ -1,3 +1,7 @@
+## 2.3.1
+
+- Fixed iOS events not working issue
+
 ## 2.3.0
 
 - Changed iOS payload nested structure to keep in sync with android (can be accessed in bot by app.profile instead of app.profile.profile)
@@ -64,11 +68,11 @@
 
 - Added dynamic versioning for Android and iOS
 
-# 1.1.0
+## 1.1.0
 
 - Removed enableHistory API
 - Added UnLinkDeviceToken API
 
-# 1.0.0
+## 1.0.0
 
 - TODO: Describe initial release.
