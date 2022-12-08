@@ -8,6 +8,8 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     private static var ymEventHandler: YmChatFlutterStreamHandler  = YmChatFlutterStreamHandler();
     
     private static var ymCloseEventHandler: YmChatFlutterStreamHandler = YmChatFlutterStreamHandler();
+
+    private static var localDelegate: CustomYmChatDelegate?
     
     public static func register(with registrar: FlutterPluginRegistrar) {
         
@@ -133,7 +135,7 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
         
         ymCloseEventChannel.setStreamHandler(ymCloseEventHandler);
         
-        let localDelegate = CustomYmChatDelegate(ymEventHandler: ymEventHandler, ymCloseEventHandler: ymCloseEventHandler)
+        localDelegate = CustomYmChatDelegate(ymEventHandler: ymEventHandler, ymCloseEventHandler: ymCloseEventHandler)
         
         YMChat.shared.delegate = localDelegate;
         
