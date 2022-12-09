@@ -1,3 +1,7 @@
+## 2.3.2
+
+- Fixed iOS `closeBot` Api issue
+
 ## 2.3.1
 
 - Fixed iOS events not working issue
