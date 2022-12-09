@@ -186,6 +186,7 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
         }
     }
     private static func closeBot( result: FlutterResult){
+        YMChat.shared.closeBot();
         result(true);
     }
     
