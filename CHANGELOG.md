@@ -1,3 +1,7 @@
+## 2.3.3
+
+- Fixed iOS event sink issue
+
 ## 2.3.2
 
 - Fixed iOS `closeBot` Api issue
