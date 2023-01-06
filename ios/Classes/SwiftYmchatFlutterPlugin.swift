@@ -8,8 +8,6 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     private static var ymEventHandler: YmChatFlutterStreamHandler  = YmChatFlutterStreamHandler();
     
     private static var ymCloseEventHandler: YmChatFlutterStreamHandler = YmChatFlutterStreamHandler();
-
-    private static var localDelegate: CustomYmChatDelegate?
     
     public static func register(with registrar: FlutterPluginRegistrar) {
         
@@ -186,7 +184,6 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
         }
     }
     private static func closeBot( result: FlutterResult){
-        YMChat.shared.closeBot();
         result(true);
     }
     
