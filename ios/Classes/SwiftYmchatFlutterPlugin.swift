@@ -9,6 +9,8 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     
     private static var ymCloseEventHandler: YmChatFlutterStreamHandler = YmChatFlutterStreamHandler();
     
+    private static var localDelegate: CustomYmChatDelegate?
+
     public static func register(with registrar: FlutterPluginRegistrar) {
         
         let channel = FlutterMethodChannel(name: "com.yellow.ai.ymchat", binaryMessenger: registrar.messenger());
@@ -20,6 +22,8 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         let instance = SwiftYmchatFlutterPlugin()
         
         registrar.addMethodCallDelegate(instance, channel: channel)
+        ymEventChannel.setStreamHandler(ymEventHandler)
+        ymCloseEventChannel.setStreamHandler(ymCloseEventHandler)
         
         channel.setMethodCallHandler({
             (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
@@ -77,7 +81,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
                 return;
             case "useLiteVersion":
                 self.useLiteVersion(call:call,result:result);
-                 return
+                return
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -87,8 +91,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         });
     }
 
-
-private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResult){
+    private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResult){
         let shouldUseLiteVersion:Bool = getRequiredParamater(parameter: "shouldUseLiteVersion", call: call)
         ymConfig?.useLiteVersion = shouldUseLiteVersion
         result(true);
@@ -129,11 +132,7 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
     private static func setBotId(call: FlutterMethodCall, result: FlutterResult, ymEventChannel: FlutterEventChannel, ymCloseEventChannel: FlutterEventChannel){
         let botId:String = getRequiredParamater(parameter: "botId", call: call)
         
-        ymEventChannel.setStreamHandler(ymEventHandler);
-        
-        ymCloseEventChannel.setStreamHandler(ymCloseEventHandler);
-        
-        let localDelegate = CustomYmChatDelegate(ymEventHandler: ymEventHandler, ymCloseEventHandler: ymCloseEventHandler)
+        localDelegate = CustomYmChatDelegate(ymEventHandler: ymEventHandler, ymCloseEventHandler: ymCloseEventHandler)
         
         YMChat.shared.delegate = localDelegate;
         
@@ -166,7 +165,7 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
         ymConfig?.customBaseUrl = customURL;
         result(true);
     }
- private static func setPayload(call: FlutterMethodCall, result: FlutterResult){
+    private static func setPayload(call: FlutterMethodCall, result: FlutterResult){
         let payload: Dictionary<String,Any>? = call.arguments as? Dictionary<String,Any>;
         if( payload != nil && payload?.keys.contains("payload") == true){
             ymConfig?.payload = payload?["payload"] as? Dictionary<String,Any> ?? [:];
@@ -257,7 +256,7 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
             alpha: CGFloat(1.0)
         )
     }
-
+    
     private static func setDisableActionsOnLoad(call: FlutterMethodCall, result: FlutterResult){
         let shouldDisableActionsOnLoad:Bool = getRequiredParamater(parameter: "shouldDisableActionsOnLoad", call: call)
         ymConfig?.disableActionsOnLoad = shouldDisableActionsOnLoad;
