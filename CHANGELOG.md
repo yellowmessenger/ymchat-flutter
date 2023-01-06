@@ -1,3 +1,7 @@
+## 2.3.4
+
+- Fixed iOS event not coming for release version issue
+
 ## 2.3.3
 
 - Fixed iOS event sink issue
