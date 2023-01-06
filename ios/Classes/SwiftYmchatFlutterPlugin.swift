@@ -290,9 +290,6 @@ class YmChatFlutterStreamHandler: NSObject,FlutterStreamHandler {
                 self._eventSink!(event);
             }
         }
-        else{
-            fatalError("Event sink is missing to emmit event");
-        }
     }
 }
 
