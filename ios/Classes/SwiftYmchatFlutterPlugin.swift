@@ -22,6 +22,8 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         let instance = SwiftYmchatFlutterPlugin()
         
         registrar.addMethodCallDelegate(instance, channel: channel)
+        ymEventChannel.setStreamHandler(ymEventHandler)
+        ymCloseEventChannel.setStreamHandler(ymCloseEventHandler)
         
         channel.setMethodCallHandler({
             (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
@@ -130,10 +132,6 @@ private static func useLiteVersion(call: FlutterMethodCall, result: FlutterResul
     
     private static func setBotId(call: FlutterMethodCall, result: FlutterResult, ymEventChannel: FlutterEventChannel, ymCloseEventChannel: FlutterEventChannel){
         let botId:String = getRequiredParamater(parameter: "botId", call: call)
-        
-        ymEventChannel.setStreamHandler(ymEventHandler);
-        
-        ymCloseEventChannel.setStreamHandler(ymCloseEventHandler);
         
         localDelegate = CustomYmChatDelegate(ymEventHandler: ymEventHandler, ymCloseEventHandler: ymCloseEventHandler)
         
