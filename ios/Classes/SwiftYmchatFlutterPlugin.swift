@@ -185,6 +185,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         }
     }
     private static func closeBot( result: FlutterResult){
+        YMChat.shared.closeBot();
         result(true);
     }
     
