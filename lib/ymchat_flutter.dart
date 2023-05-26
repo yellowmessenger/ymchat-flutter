@@ -143,4 +143,9 @@ class YmChat {
         'useLiteVersion', {"shouldUseLiteVersion": shouldUseLiteVersion});
     return isUsingLiteVersion;
   }
+
+  static Future<bool> reloadBot() async {
+    bool isBotReloaded = await _channel.invokeMethod('reloadBot');
+    return isBotReloaded;
+  }
 }
