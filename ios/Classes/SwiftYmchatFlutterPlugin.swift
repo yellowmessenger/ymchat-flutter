@@ -82,6 +82,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "useLiteVersion":
                 self.useLiteVersion(call:call,result:result);
                 return
+            case "reloadBot":
+                self.reloadBot(result:result);
+                return;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -233,6 +236,11 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     private static func setCloseButtonColor(call: FlutterMethodCall, result: FlutterResult){
         let color:String = getRequiredParamater(parameter: "color", call: call)
         ymConfig?.closeButtonColor = hexStringToUIColor(hex: color);
+        result(true);
+    }
+
+    private static func reloadBot( result: FlutterResult){
+        YMChat.shared.reloadBot();
         result(true);
     }
     
