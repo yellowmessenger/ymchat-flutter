@@ -92,6 +92,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "setCloseButtonColor":
                 setCloseButtonColor(call, result);
                 break;
+            case "setMicIconColor":
+                setMicIconColor(call, result);
+                break;
+            case "setMicBackgroundColor":
+                setMicBackgroundColor(call, result);
+                break;
             case "setDisableActionsOnLoad":
                 setDisableActionsOnLoad(call, result);
                 break;
@@ -139,6 +145,18 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     private void setStatusBarColor(MethodCall call, Result result) {
         String color = call.argument("color");
         ymChatService.setStatusBarColor(color);
+        result.success(true);
+    }
+
+    private void setMicIconColor(MethodCall call, Result result) {
+        String color = call.argument("color");
+        ymChatService.setMicIconColor(color);
+        result.success(true);
+    }
+
+    private void setMicBackgroundColor(MethodCall call, Result result) {
+        String color = call.argument("color");
+        ymChatService.setMicBackgroundColor(color);
         result.success(true);
     }
 

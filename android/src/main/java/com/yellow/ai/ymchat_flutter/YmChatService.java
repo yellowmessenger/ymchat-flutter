@@ -167,6 +167,14 @@ public class YmChatService {
         ymChat.config.statusBarColorFromHex = color;
     }
 
+    public void setMicIconColor(String color) {
+        ymChat.config.enableSpeechConfig.fabIconColor = color;
+    }
+
+    public void setMicBackgroundColor(String color) {
+        ymChat.config.enableSpeechConfig.fabBackgroundColor = color;
+    }
+
     public void setDisableActionsOnLoad(Boolean shouldDisableActionsOnLoad) {
         ymChat.config.disableActionsOnLoad = shouldDisableActionsOnLoad;
     }

@@ -70,6 +70,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setCloseButtonColor":
                 self.setCloseButtonColor(call:call,result:result);
                 return;
+            case "setMicIconColor":
+                self.setMicIconColor(call:call,result:result);
+                break;
+            case "setMicBackgroundColor":
+                self.setMicBackgroundColor(call:call,result:result);
+                break;
             case "setDisableActionsOnLoad":
                 self.setDisableActionsOnLoad(call:call,result:result);
                 return;
@@ -236,6 +242,18 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         result(true);
     }
     
+    private static func setMicIconColor(call: FlutterMethodCall, result: FlutterResult){
+        let color:String = getRequiredParamater(parameter: "color", call: call)
+        ymConfig?.enableSpeechConfig.fabIconColor = hexStringToUIColor(hex: color);
+        result(true);
+    }
+
+    private static func setMicBackgroundColor(call: FlutterMethodCall, result: FlutterResult){
+        let color:String = getRequiredParamater(parameter: "color", call: call)
+        ymConfig?.enableSpeechConfig.fabBackgroundColor = hexStringToUIColor(hex: color);
+        result(true);
+    }
+
     private static func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
