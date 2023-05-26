@@ -1,3 +1,7 @@
+## 2.4.0
+
+- `reloadBot` Api Added
+
 ## 2.3.5
 
 - Fixed iOS `closeBot` Api issue
