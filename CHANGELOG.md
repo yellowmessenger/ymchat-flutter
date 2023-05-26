@@ -1,3 +1,8 @@
+## 2.5.0
+
+- Floating Mic Button added
+- Exposed `setMicIconColor` & `setMicBackgroundColor` for mic properties
+
 ## 2.4.0
 
 - `reloadBot` Api Added

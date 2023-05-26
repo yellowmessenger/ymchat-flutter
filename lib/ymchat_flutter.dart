@@ -101,6 +101,18 @@ class YmChat {
     return isCloseButtonColorSet;
   }
 
+  static Future<bool> setMicIconColor(String color) async {
+    bool isMicIconColorSet =
+        await _channel.invokeMethod('setMicIconColor', {"color": color});
+    return isMicIconColorSet;
+  }
+
+  static Future<bool> setMicBackgroundColor(String color) async {
+    bool isMicBackgroundColorSet =
+        await _channel.invokeMethod('setMicBackgroundColor', {"color": color});
+    return isMicBackgroundColorSet;
+  }
+
   static Future<bool> setDisableActionsOnLoad(
       bool shouldDisableActionsOnLoad) async {
     bool isDisableActionsOnLoad = await _channel.invokeMethod(
