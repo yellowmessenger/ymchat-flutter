@@ -221,4 +221,8 @@ public class YmChatService {
     public void useLiteVersion(Boolean shouldUseLiteVersion) {
         ymChat.config.useLiteVersion = shouldUseLiteVersion;
     }
+
+    public void reloadBot() {
+        ymChat.reloadBot();
+    }
 }
