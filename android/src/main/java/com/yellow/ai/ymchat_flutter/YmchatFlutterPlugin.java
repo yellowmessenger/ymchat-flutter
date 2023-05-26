@@ -103,6 +103,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "useLiteVersion":
                 useLiteVersion(call, result);
                 break;
+            case "reloadBot":
+                reloadBot(result);
+                break;
             default:
                 result.notImplemented();
                 break;
@@ -154,6 +157,11 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
     public void closeBot(Result result) {
         ymChatService.closeBot();
+        result.success(true);
+    }
+
+    public void reloadBot(Result result) {
+        ymChatService.reloadBot();
         result.success(true);
     }
 
