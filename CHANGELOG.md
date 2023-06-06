@@ -1,3 +1,7 @@
+## 2.6.0
+
+- Android - Authority changes added
+
 ## 2.5.0
 
 - Floating Mic Button added
