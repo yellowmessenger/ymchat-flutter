@@ -245,9 +245,13 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         result(true);
     }
 
-    private static func reloadBot( result: FlutterResult){
-        YMChat.shared.reloadBot();
-        result(true);
+    private static func reloadBot(result: FlutterResult){
+         do {
+            try YMChat.shared.reloadBot();
+            result(true);
+        } catch{
+            result(false);
+        }
     }
     
     private static func setMicIconColor(call: FlutterMethodCall, result: FlutterResult){
