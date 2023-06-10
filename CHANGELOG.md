@@ -1,3 +1,7 @@
+## 2.6.1
+
+- iOS `reloadBot` API issue resolved
+
 ## 2.6.0
 
 - Android - Authority changes added
