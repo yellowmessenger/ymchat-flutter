@@ -106,6 +106,7 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
                 break;
             case "registerDevice":
                 registerDevice(call, result);
+                break;
             case "useLiteVersion":
                 useLiteVersion(call, result);
                 break;
