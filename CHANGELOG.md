@@ -1,3 +1,7 @@
+## 2.6.2
+
+- Fixed `registerDevice` crash issue
+
 ## 2.6.1
 
 - iOS `reloadBot` API issue resolved
