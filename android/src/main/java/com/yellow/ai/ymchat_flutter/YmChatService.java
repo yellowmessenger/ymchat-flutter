@@ -131,7 +131,7 @@ public class YmChatService {
                 public void success() {
                     result.success(true);
                 }
-            
+
                 @Override
                 public void failure(String message) {
                     result.success(message);
