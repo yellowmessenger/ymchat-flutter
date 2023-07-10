@@ -136,7 +136,7 @@ public class YmChatService {
                 public void failure(String message) {
                     result.success(message);
                 }
-        });
+            });
         } catch (Exception e) {
             result.error("error in unLinkDeviceToken", e.getMessage(), e);
         }
