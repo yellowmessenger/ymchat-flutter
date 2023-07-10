@@ -127,19 +127,19 @@ public class YmChatService {
     public void unLinkDeviceToken(String apiKey, MethodCall call, MethodChannel.Result result) {
         try {
             ymChat.unlinkDeviceToken(apiKey, ymChat.config, new YellowCallback() {
-            @Override
-            public void success() {
-                result.success(true);
-            }
-        
-            @Override
-            public void failure(String message) {
-                result.success(message);
-            }
+                @Override
+                public void success() {
+                    result.success(true);
+                }
+            
+                @Override
+                public void failure(String message) {
+                    result.success(message);
+                }
         });
-    } catch (Exception e) {
-        result.error("error in unLinkDeviceToken", e.getMessage(), e);
-    }
+        } catch (Exception e) {
+            result.error("error in unLinkDeviceToken", e.getMessage(), e);
+        }
     }
 
     public void customBaseUrl(String url) {
