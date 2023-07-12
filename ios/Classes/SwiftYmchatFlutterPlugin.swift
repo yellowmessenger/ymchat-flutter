@@ -211,10 +211,8 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     
     private static func unLinkDeviceToken(call: FlutterMethodCall, result: @escaping FlutterResult)
     {
-        let botId:String = getRequiredParamater(parameter: "botId", call: call);
         let apiKey:String  = getRequiredParamater(parameter: "apiKey", call: call);
-        let deviceToken:String = getRequiredParamater(parameter: "deviceToken", call: call);
-        YMChat.shared.unlinkDeviceToken(botId: botId, apiKey: apiKey, deviceToken: deviceToken) {
+        YMChat.shared.unlinkDeviceToken(apiKey: apiKey, ymConfig: ymConfig!) {
             result(true);
         } failure: { (failureMessage:String) -> Void in
             result(failureMessage);
