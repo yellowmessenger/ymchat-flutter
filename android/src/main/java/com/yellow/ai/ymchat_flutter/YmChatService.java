@@ -124,10 +124,9 @@ public class YmChatService {
         ymChat.config.showCloseButton = shouldShowCloseButton;
     }
 
-    public void unLinkDeviceToken(String botId, String apiKey, String deviceToken, MethodCall call,
-            MethodChannel.Result result) {
+    public void unLinkDeviceToken(String apiKey, MethodCall call, MethodChannel.Result result) {
         try {
-            ymChat.unlinkDeviceToken(botId, apiKey, deviceToken, new YellowCallback() {
+            ymChat.unlinkDeviceToken(apiKey, ymChat.config, new YellowCallback() {
                 @Override
                 public void success() {
                     result.success(true);

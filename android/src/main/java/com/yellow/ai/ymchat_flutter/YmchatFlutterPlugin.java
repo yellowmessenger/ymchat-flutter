@@ -221,10 +221,8 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void unLinkDeviceToken(MethodCall call, Result result) {
-        String botId = call.argument("botId");
         String apiKey = call.argument("apiKey");
-        String deviceToken = call.argument("deviceToken");
-        ymChatService.unLinkDeviceToken(botId, apiKey, deviceToken, call, result);
+        ymChatService.unLinkDeviceToken(apiKey, call, result);
     }
 
     private void setVersion(MethodCall call, Result result) {
