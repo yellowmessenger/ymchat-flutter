@@ -1,3 +1,9 @@
+## 2.7.0
+
+- Android API update
+- Background & Foreground Event
+- Fixed `unlinkDevice` API
+
 ## 2.6.2
 
 - Fixed `registerDevice` crash issue
