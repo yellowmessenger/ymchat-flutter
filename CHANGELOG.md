@@ -1,3 +1,7 @@
+## 2.7.1
+
+- Removed unused imports. 
+
 ## 2.7.0
 
 - Android API update
