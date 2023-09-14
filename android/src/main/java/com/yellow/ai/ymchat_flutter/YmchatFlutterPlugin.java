@@ -113,6 +113,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "reloadBot":
                 reloadBot(result);
                 break;
+            case "revalidateToken":
+                revalidateToken(call, result);
+                break;
+            case "useSecureYmAuth":
+                useSecureYmAuth(call, result);
+                break;
             default:
                 result.notImplemented();
                 break;
@@ -131,6 +137,19 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     public void useLiteVersion(MethodCall call, Result result) {
         Boolean shouldUseLiteVersion = call.argument("shouldUseLiteVersion");
         ymChatService.useLiteVersion(shouldUseLiteVersion);
+        result.success(true);
+    }
+
+    public void revalidateToken(MethodCall call,Result result){
+        String token = call.argument("token");
+        Boolean refreshSession = call.argument("refreshSession");
+        ymChatService.revalidateToken(token, refreshSession);
+        result.success(true);
+    }
+
+    public void useSecureYmAuth(MethodCall call,Result result){
+        Boolean shouldUseSecureYmAuth = call.argument("shouldUseSecureYmAuth");
+        ymChatService.useSecureYmAuth(shouldUseSecureYmAuth);
         result.success(true);
     }
 
