@@ -144,16 +144,20 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         }
     }
 
-    private static func void revalidateToken(call: FlutterMethodCall, result: FlutterResult){
-        let token:String = getRequiredParamater(parameter: "token", call: call);
-        let refreshSession:Bool = getRequiredParamater(parameter: "refreshSession", call: call);
-        YmChat.shared.revalidateToken(token, refreshSession);
-        result(true);
+    private static func revalidateToken(call: FlutterMethodCall, result: FlutterResult){
+        do {
+            let refreshSession:Bool = getRequiredParamater(parameter: "refreshSession", call: call);
+            let token:String = getRequiredParamater(parameter: "token", call: call);
+            try YMChat.shared.revalidateToken(token: token, refreshSession: refreshSession);
+            result(true);
+        } catch{
+            result(false);
+        }
     }
 
-    private static func void useSecureYmAuth(MethodCall call,Result result){
+    private static func useSecureYmAuth(call: FlutterMethodCall, result: FlutterResult){
         let shouldUseSecureYmAuth:Bool = getRequiredParamater(parameter: "shouldUseSecureYmAuth", call: call);
-        ymConfig?.useSecureYmAuth(shouldUseSecureYmAuth);
+        ymConfig?.useSecureYmAuth = shouldUseSecureYmAuth;
         result(true);
     }
     
@@ -263,7 +267,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     }
 
     private static func reloadBot(result: FlutterResult){
-         do {
+        do {
             try YMChat.shared.reloadBot();
             result(true);
         } catch{
