@@ -146,8 +146,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
 
     private static func revalidateToken(call: FlutterMethodCall, result: FlutterResult){
         do {
-            let refreshSession:Bool = getRequiredParamater(parameter: "refreshSession", call: call);
-            let token:String = getRequiredParamater(parameter: "token", call: call);
+            guard let args = call.arguments as? [String : Any], 
+                let token = args["token"] as? String, 
+                let refreshSession = args["refreshSession"] as? Bool else { return }
             try YMChat.shared.revalidateToken(token: token, refreshSession: refreshSession);
             result(true);
         } catch{
