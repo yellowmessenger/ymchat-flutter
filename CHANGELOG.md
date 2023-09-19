@@ -1,3 +1,7 @@
+## 2.8.0
+
+- Added support for secure YMAuth.
+
 ## 2.7.1
 
 - Removed unused imports. 
