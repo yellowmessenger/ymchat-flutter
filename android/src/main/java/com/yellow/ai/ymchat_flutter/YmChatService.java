@@ -221,6 +221,18 @@ public class YmChatService {
         ymChat.config.useLiteVersion = shouldUseLiteVersion;
     }
 
+    public void revalidateToken(String token, boolean refreshSession) {
+        try {
+            ymChat.revalidateToken(token, refreshSession);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void useSecureYmAuth(boolean shouldUseSecureYmAuth) {
+        ymChat.config.useSecureYmAuth = shouldUseSecureYmAuth;
+    }
+
     public void reloadBot() {
         ymChat.reloadBot();
     }
