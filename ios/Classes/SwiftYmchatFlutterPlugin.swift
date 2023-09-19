@@ -91,6 +91,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "reloadBot":
                 self.reloadBot(result:result);
                 return;
+            case "revalidateToken":
+                revalidateToken(call:call,result:result);
+                break;
+            case "useSecureYmAuth":
+                useSecureYmAuth(call:call,result:result);
+                break;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -136,6 +142,24 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         else{
             result("Bot id not found")
         }
+    }
+
+    private static func revalidateToken(call: FlutterMethodCall, result: FlutterResult){
+        do {
+            guard let args = call.arguments as? [String : Any], 
+                let token = args["token"] as? String, 
+                let refreshSession = args["refreshSession"] as? Bool else { return }
+            try YMChat.shared.revalidateToken(token: token, refreshSession: refreshSession);
+            result(true);
+        } catch{
+            result(false);
+        }
+    }
+
+    private static func useSecureYmAuth(call: FlutterMethodCall, result: FlutterResult){
+        let shouldUseSecureYmAuth:Bool = getRequiredParamater(parameter: "shouldUseSecureYmAuth", call: call);
+        ymConfig?.useSecureYmAuth = shouldUseSecureYmAuth;
+        result(true);
     }
     
     private static func setBotId(call: FlutterMethodCall, result: FlutterResult, ymEventChannel: FlutterEventChannel, ymCloseEventChannel: FlutterEventChannel){
@@ -244,7 +268,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     }
 
     private static func reloadBot(result: FlutterResult){
-         do {
+        do {
             try YMChat.shared.reloadBot();
             result(true);
         } catch{

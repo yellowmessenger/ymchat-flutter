@@ -18,6 +18,18 @@ class YmChat {
     return isdeviceTokenAssigned;
   }
 
+  static Future<bool> revalidateToken(String token, bool refreshSession) async {
+    bool isRevalidateToken = await _channel.invokeMethod(
+        "revalidateToken", {"token": token, "refreshSession": refreshSession});
+    return isRevalidateToken;
+  }
+
+  static Future<bool> useSecureYmAuth(bool shouldUseSecureYmAuth) async {
+    bool isUseSecureYmAuth = await _channel.invokeMethod(
+        "useSecureYmAuth", {"shouldUseSecureYmAuth": shouldUseSecureYmAuth});
+    return isUseSecureYmAuth;
+  }
+
   static Future<bool> setEnableSpeech(bool shouldEnableSpeech) async {
     bool isSpeechEnabled = await _channel.invokeMethod(
         'setEnableSpeech', {"shouldEnableSpeech": shouldEnableSpeech});
