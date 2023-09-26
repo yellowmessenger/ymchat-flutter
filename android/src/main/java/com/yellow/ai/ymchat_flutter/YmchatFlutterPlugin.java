@@ -164,7 +164,7 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
     public void sendEventToBot(MethodCall call, Result result) {
         String code = call.argument("code");
-        HashMap<String,Object> data  = call.argument("data";)
+        HashMap<String,Object> data  = call.argument("data");
         ymChatService.sendEventToBot(code, data);
         result.success(true);
     }
