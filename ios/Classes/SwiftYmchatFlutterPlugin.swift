@@ -169,9 +169,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         do{
             guard let args = call.arguments as? [String : Any], 
                 let code = args["code"] as? String, 
-                let data: Dictionary<String,Any>? = args["data"] as? Dictionary<String,Any>;
+                let data = args["data"] as? Dictionary<String,Any> else { return }
             let event = YMEventModel(code: code, data: data);
-            try YMChat.shared.sendEventToBot(event);
+            try YMChat.shared.sendEventToBot(event: event);
             result(true);
         }catch{
             result(false);
