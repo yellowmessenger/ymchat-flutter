@@ -11,6 +11,7 @@ import com.yellowmessenger.ymchat.YMConfig;
 import com.yellowmessenger.ymchat.models.YellowCallback;
 import com.yellowmessenger.ymchat.models.YellowDataCallback;
 import com.yellowmessenger.ymchat.models.YellowUnreadMessageResponse;
+import com.yellowmessenger.ymchat.models.YMEventModel;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -231,6 +232,15 @@ public class YmChatService {
 
     public void useSecureYmAuth(boolean shouldUseSecureYmAuth) {
         ymChat.config.useSecureYmAuth = shouldUseSecureYmAuth;
+    }
+
+    public void sendEventToBot(String code, HashMap<String,Object> data)  {
+        try {
+            YMEventModel model = new YMEventModel(code, data);
+            ymChat.sendEventToBot(model);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void reloadBot() {
