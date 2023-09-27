@@ -1,3 +1,7 @@
+## 2.9.0
+
+- Exposing a controlled api (sendEventToBot(model)) for sending event to bot
+
 ## 2.8.0
 
 - Added support for secure YMAuth.

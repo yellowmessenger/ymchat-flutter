@@ -97,6 +97,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "useSecureYmAuth":
                 useSecureYmAuth(call:call,result:result);
                 break;
+            case "sendEventToBot":
+                sendEventToBot(call:call,result:result);
+                break;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -160,6 +163,19 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         let shouldUseSecureYmAuth:Bool = getRequiredParamater(parameter: "shouldUseSecureYmAuth", call: call);
         ymConfig?.useSecureYmAuth = shouldUseSecureYmAuth;
         result(true);
+    }
+
+    private static func sendEventToBot(call: FlutterMethodCall, result: FlutterResult){
+        do{
+            guard let args = call.arguments as? [String : Any], 
+                let code = args["code"] as? String, 
+                let data = args["data"] as? Dictionary<String,Any> else { return }
+            let event = YMEventModel(code: code, data: data);
+            try YMChat.shared.sendEventToBot(event: event);
+            result(true);
+        }catch{
+            result(false);
+        }
     }
     
     private static func setBotId(call: FlutterMethodCall, result: FlutterResult, ymEventChannel: FlutterEventChannel, ymCloseEventChannel: FlutterEventChannel){
