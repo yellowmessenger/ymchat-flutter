@@ -119,6 +119,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "useSecureYmAuth":
                 useSecureYmAuth(call, result);
                 break;
+            case "sendEventToBot":
+                sendEventToBot(call, result);
+                break;
             default:
                 result.notImplemented();
                 break;
@@ -156,6 +159,13 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     public void setDisableActionsOnLoad(MethodCall call, Result result) {
         Boolean shouldDisableActionsOnLoad = call.argument("shouldDisableActionsOnLoad");
         ymChatService.setDisableActionsOnLoad(shouldDisableActionsOnLoad);
+        result.success(true);
+    }
+
+    public void sendEventToBot(MethodCall call, Result result) {
+        String code = call.argument("code");
+        HashMap<String,Object> data  = call.argument("data");
+        ymChatService.sendEventToBot(code, data);
         result.success(true);
     }
 

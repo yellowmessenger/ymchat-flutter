@@ -30,6 +30,13 @@ class YmChat {
     return isUseSecureYmAuth;
   }
 
+  static Future<bool> sendEventToBot(
+      String code, Map<String, Object> data) async {
+    bool isSendEventToBot = await _channel
+        .invokeMethod("sendEventToBot", {"code": code, "data": data});
+    return isSendEventToBot;
+  }
+
   static Future<bool> setEnableSpeech(bool shouldEnableSpeech) async {
     bool isSpeechEnabled = await _channel.invokeMethod(
         'setEnableSpeech', {"shouldEnableSpeech": shouldEnableSpeech});
