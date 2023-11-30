@@ -174,4 +174,40 @@ class YmChat {
     bool isBotReloaded = await _channel.invokeMethod('reloadBot');
     return isBotReloaded;
   }
+
+  static Future<bool> setThemeBotName(String name) async {
+    bool isThemeBotNameAssigned =
+        await _channel.invokeMethod('setThemeBotName', {"name": name});
+    return isThemeBotNameAssigned;
+  }
+
+  static Future<bool> setThemeBotDescription(String description) async {
+    bool isThemeBotDescriptionAssigned = await _channel
+        .invokeMethod('setThemeBotDescription', {"description": description});
+    return isThemeBotDescriptionAssigned;
+  }
+
+  static Future<bool> setThemePrimaryColor(String color) async {
+    bool isThemePrimaryColorAssigned =
+        await _channel.invokeMethod('setThemePrimaryColor', {"color": color});
+    return isThemePrimaryColorAssigned;
+  }
+
+  static Future<bool> setThemeSecondaryColor(String color) async {
+    bool isThemeSecondaryColorAssigned =
+        await _channel.invokeMethod('setThemeSecondaryColor', {"color": color});
+    return isThemeSecondaryColorAssigned;
+  }
+
+  static Future<bool> setThemeBotIcon(String iconUrl) async {
+    bool isThemeBotIconAssigned =
+        await _channel.invokeMethod('setThemeBotIcon', {"iconUrl": iconUrl});
+    return isThemeBotIconAssigned;
+  }
+
+  static Future<bool> setThemeBotClickIcon(String iconUrl) async {
+    bool isThemeBotClickIconAssigned = await _channel
+        .invokeMethod('setThemeBotClickIcon', {"iconUrl": iconUrl});
+    return isThemeBotClickIconAssigned;
+  }
 }
