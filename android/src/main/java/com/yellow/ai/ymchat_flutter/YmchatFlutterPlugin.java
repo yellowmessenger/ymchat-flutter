@@ -292,7 +292,7 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     
     public void setThemeBotDescription(MethodCall call, Result result) {
         String description = call.argument("description");
-        ymChatService.setThemeBotDescription(name);
+        ymChatService.setThemeBotDescription(description);
         result.success(true);
     }
     
