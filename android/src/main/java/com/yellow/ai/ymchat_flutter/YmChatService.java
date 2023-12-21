@@ -12,6 +12,7 @@ import com.yellowmessenger.ymchat.models.YellowCallback;
 import com.yellowmessenger.ymchat.models.YellowDataCallback;
 import com.yellowmessenger.ymchat.models.YellowUnreadMessageResponse;
 import com.yellowmessenger.ymchat.models.YMEventModel;
+import com.yellowmessenger.ymchat.models.YMTheme;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -245,5 +246,29 @@ public class YmChatService {
 
     public void reloadBot() {
         ymChat.reloadBot();
+    }
+
+    public void setThemeBotName(String name, CallbackContext callbackContext) {
+        ymChat.config.theme.botName = name;
+    }
+    
+    public void setThemeBotDescription(String description, CallbackContext callbackContext) {
+        ymChat.config.theme.botDesc = description;
+    }
+    
+    public void setThemePrimaryColor(String color, CallbackContext callbackContext) {
+        ymChat.config.theme.primaryColor = color;
+    }
+    
+    public void setThemeSecondaryColor(String color, CallbackContext callbackContext) {
+        ymChat.config.theme.secondaryColor = color;
+    }
+    
+    public void setThemeBotIcon(String iconUrl, CallbackContext callbackContext) {
+        ymChat.config.theme.botIcon = iconUrl;
+    }
+    
+    public void setThemeBotClickIcon(String iconUrl, CallbackContext callbackContext) {
+        ymChat.config.theme.botClickIcon = iconUrl;
     }
 }

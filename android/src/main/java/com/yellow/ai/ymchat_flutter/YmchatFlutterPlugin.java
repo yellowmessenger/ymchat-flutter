@@ -122,6 +122,24 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "sendEventToBot":
                 sendEventToBot(call, result);
                 break;
+            case "setThemeBotName":
+                setThemeBotName(call, result);
+                break;
+            case "setThemeBotDescription":
+                setThemeBotDescription(call, result);
+                break;
+            case "setThemePrimaryColor":
+                setThemePrimaryColor(call, result);
+                break;
+            case "setThemeSecondaryColor":
+                setThemeSecondaryColor(call, result);
+                break;
+            case "setThemeBotIcon":
+                setThemeBotIcon(call, result);
+                break;
+            case "setThemeBotClickIcon":
+                setThemeBotClickIcon(call, result);
+                break;
             default:
                 result.notImplemented();
                 break;
@@ -263,6 +281,42 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     public void setCustomLoaderURL(MethodCall call, Result result) {
         String customURL = call.argument("customLoaderURL");
         ymChatService.setCustomLoaderUrl(customURL);
+        result.success(true);
+    }
+
+    public void setThemeBotName(MethodCall call, Result result) {
+        String name = call.argument("name");
+        ymChatService.setThemeBotName(name);
+        result.success(true);
+    }
+    
+    public void setThemeBotDescription(MethodCall call, Result result) {
+        String description = call.argument("description");
+        ymChatService.setThemeBotDescription(description);
+        result.success(true);
+    }
+    
+    public void setThemePrimaryColor(MethodCall call, Result result) {
+        String color = call.argument("color");
+        ymChatService.setThemePrimaryColor(color);
+        result.success(true);
+    }
+    
+    public void setThemeSecondaryColor(MethodCall call, Result result) {
+        String color = call.argument("color");
+        ymChatService.setThemeSecondaryColor(color);
+        result.success(true);
+    }
+    
+    public void setThemeBotIcon(MethodCall call, Result result) {
+        String iconUrl = call.argument("iconUrl");
+        ymChatService.setThemeBotIcon(iconUrl);
+        result.success(true);
+    }
+    
+    public void setThemeBotClickIcon(String iconUrl, CallbackContext callbackContext) {
+        String iconUrl = call.argument("iconUrl");
+        ymChatService.setThemeBotClickIcon(iconUrl);
         result.success(true);
     }
 
