@@ -1,3 +1,7 @@
+## 2.10.0
+
+- Exposed `theme` option in ymConfig to control bot name, bot description and some other properties in bot
+
 ## 2.9.0
 
 - Exposing a controlled api (sendEventToBot(model)) for sending event to bot
