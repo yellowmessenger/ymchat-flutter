@@ -100,6 +100,24 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "sendEventToBot":
                 sendEventToBot(call:call,result:result);
                 break;
+            case "setThemeBotName":
+                setThemeBotName(call:call,result:result);
+                break;
+            case "setThemeBotDescription":
+                setThemeBotDescription(call:call,result:result);
+                break;
+            case "setThemePrimaryColor":
+                setThemePrimaryColor(call:call,result:result);
+                break;
+            case "setThemeSecondaryColor":
+                setThemeSecondaryColor(call:call,result:result);
+                break;
+            case "setThemeBotIcon":
+                setThemeBotIcon(call:call,result:result);
+                break;
+            case "setThemeBotClickIcon":
+                setThemeBotClickIcon(call:call,result:result);
+                break;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -238,6 +256,42 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         result(true);
     }
     
+    private static func setThemeBotName(call: FlutterMethodCall, result: FlutterResult){
+        let name:String = getRequiredParamater(parameter: "name", call: call)
+        ymConfig?.theme.botName = name;
+        result(true);
+    }
+
+    private static func setThemeBotDescription(call: FlutterMethodCall, result: FlutterResult){
+        let description:String = getRequiredParamater(parameter: "description", call: call)
+        ymConfig?.theme.botDescription = description;
+        result(true);
+    }
+
+    private static func setThemePrimaryColor(call: FlutterMethodCall, result: FlutterResult){
+        let color:String = getRequiredParamater(parameter: "color", call: call)
+        ymConfig?.theme.primaryColor = color;
+        result(true);
+    }
+
+    private static func setThemeSecondaryColor(call: FlutterMethodCall, result: FlutterResult){
+        let color:String = getRequiredParamater(parameter: "color", call: call)
+        ymConfig?.theme.secondaryColor = color;
+        result(true);
+    }
+
+    private static func setThemeBotIcon(call: FlutterMethodCall, result: FlutterResult){
+        let iconUrl:String = getRequiredParamater(parameter: "iconUrl", call: call)
+        ymConfig?.theme.botIcon = iconUrl;
+        result(true);
+    }
+
+    private static func setThemeBotClickIcon(call: FlutterMethodCall, result: FlutterResult){
+        let iconUrl:String = getRequiredParamater(parameter: "iconUrl", call: call)
+        ymConfig?.theme.botClickIcon = iconUrl;
+        result(true);
+    }
+
     private static func getRequiredParamater<T:Decodable>(parameter: String, call: FlutterMethodCall) -> T{
         let args: Dictionary<String, T>? = call.arguments as? Dictionary<String, T>;
         let param: T? = args?[parameter];
