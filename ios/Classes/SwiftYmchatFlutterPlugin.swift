@@ -270,13 +270,13 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
 
     private static func setThemePrimaryColor(call: FlutterMethodCall, result: FlutterResult){
         let color:String = getRequiredParamater(parameter: "color", call: call)
-        ymConfig?.theme.primaryColor = color;
+        ymConfig?.theme.primaryColor = hexStringToUIColor(hex: color);
         result(true);
     }
 
     private static func setThemeSecondaryColor(call: FlutterMethodCall, result: FlutterResult){
         let color:String = getRequiredParamater(parameter: "color", call: call)
-        ymConfig?.theme.secondaryColor = color;
+        ymConfig?.theme.secondaryColor = hexStringToUIColor(hex: color);
         result(true);
     }
 
