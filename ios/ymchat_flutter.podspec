@@ -11,7 +11,7 @@ Flutter plugin to integrate with yellow.ai chatbot
                        DESC
   s.homepage         = 'https://yellow.ai/'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Purushottam' => 'purushottam.yadav@yellow.ai' }
+  s.author           = { 'Sankalp' => 'sankalp.gupta@yellow.ai' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
