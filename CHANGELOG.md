@@ -1,3 +1,7 @@
+## 2.11.0
+
+- Passing App Ids for App Whitelisting feature
+
 ## 2.10.1
 
 - Exposed `theme` option in ymConfig to control bot name, bot description and some other properties in bot
