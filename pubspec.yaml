@@ -1,6 +1,6 @@
 name: ymchat_flutter
 description: Flutter plugin to integrate with yellow.ai chatbot
-version: 2.10.1
+version: 2.11.0
 homepage: "https://github.com/yellowmessenger"
 
 environment:
