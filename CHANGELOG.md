@@ -1,3 +1,7 @@
+## 2.11.1
+
+- The function `startChatbot()` returns a success signal upon completing its execution successfully
+
 ## 2.11.0
 
 - Passing App Ids for App Whitelisting feature
