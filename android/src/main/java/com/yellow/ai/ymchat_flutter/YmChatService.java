@@ -100,6 +100,7 @@ public class YmChatService {
     public void startChatbot(MethodCall call, MethodChannel.Result result, Context context) {
         try {
             ymChat.startChatbot(context);
+            result.success(true);
         } catch (Exception e) {
             e.printStackTrace();
             result.error("error in startChatbot", e.getMessage(), e);
