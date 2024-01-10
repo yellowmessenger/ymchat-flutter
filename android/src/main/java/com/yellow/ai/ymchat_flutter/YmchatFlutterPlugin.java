@@ -314,7 +314,7 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
         result.success(true);
     }
     
-    public void setThemeBotClickIcon(String iconUrl, CallbackContext callbackContext) {
+    public void setThemeBotClickIcon(MethodCall call, Result result) {
         String iconUrl = call.argument("iconUrl");
         ymChatService.setThemeBotClickIcon(iconUrl);
         result.success(true);

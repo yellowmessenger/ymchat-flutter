@@ -249,27 +249,27 @@ public class YmChatService {
         ymChat.reloadBot();
     }
 
-    public void setThemeBotName(String name, CallbackContext callbackContext) {
+    public void setThemeBotName(String name) {
         ymChat.config.theme.botName = name;
     }
     
-    public void setThemeBotDescription(String description, CallbackContext callbackContext) {
+    public void setThemeBotDescription(String description) {
         ymChat.config.theme.botDesc = description;
     }
     
-    public void setThemePrimaryColor(String color, CallbackContext callbackContext) {
+    public void setThemePrimaryColor(String color) {
         ymChat.config.theme.primaryColor = color;
     }
     
-    public void setThemeSecondaryColor(String color, CallbackContext callbackContext) {
+    public void setThemeSecondaryColor(String color) {
         ymChat.config.theme.secondaryColor = color;
     }
     
-    public void setThemeBotIcon(String iconUrl, CallbackContext callbackContext) {
+    public void setThemeBotIcon(String iconUrl) {
         ymChat.config.theme.botIcon = iconUrl;
     }
     
-    public void setThemeBotClickIcon(String iconUrl, CallbackContext callbackContext) {
+    public void setThemeBotClickIcon(String iconUrl) {
         ymChat.config.theme.botClickIcon = iconUrl;
     }
 }
