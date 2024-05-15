@@ -264,6 +264,10 @@ public class YmChatService {
     public void setThemeSecondaryColor(String color) {
         ymChat.config.theme.secondaryColor = color;
     }
+
+    public void setThemeBotBubbleBackgroundColor(String color) {
+        ymChat.config.theme.botBubbleBackgroundColor = color;
+    }
     
     public void setThemeBotIcon(String iconUrl) {
         ymChat.config.theme.botIcon = iconUrl;

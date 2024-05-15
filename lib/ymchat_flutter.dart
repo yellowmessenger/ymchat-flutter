@@ -199,6 +199,12 @@ class YmChat {
     return isThemeSecondaryColorAssigned;
   }
 
+  static Future<bool> setThemeBotBubbleBackgroundColor(String color) async {
+    bool isThemeBotBubbleBackgroundColorAssigned =
+        await _channel.invokeMethod('setThemeBotBubbleBackgroundColor', {"color": color});
+    return isThemeBotBubbleBackgroundColorAssigned;
+  }
+
   static Future<bool> setThemeBotIcon(String iconUrl) async {
     bool isThemeBotIconAssigned =
         await _channel.invokeMethod('setThemeBotIcon', {"iconUrl": iconUrl});

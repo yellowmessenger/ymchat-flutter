@@ -134,6 +134,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "setThemeSecondaryColor":
                 setThemeSecondaryColor(call, result);
                 break;
+            case "setThemeBotBubbleBackgroundColor":
+                setThemeBotBubbleBackgroundColor(call, result);
+                break;
             case "setThemeBotIcon":
                 setThemeBotIcon(call, result);
                 break;
@@ -305,6 +308,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     public void setThemeSecondaryColor(MethodCall call, Result result) {
         String color = call.argument("color");
         ymChatService.setThemeSecondaryColor(color);
+        result.success(true);
+    }
+
+    public void setThemeBotBubbleBackgroundColor(MethodCall call, Result result) {
+        String color = call.argument("color");
+        ymChatService.setThemeBotBubbleBackgroundColor(color);
         result.success(true);
     }
     
