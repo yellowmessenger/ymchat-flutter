@@ -1,3 +1,7 @@
+## 2.13.0
+
+- added `setThemeBotBubbleBackgroundColor` method to make change for background color for bot bubble
+
 ## 2.11.1
 
 - The function `startChatbot()` returns a success signal upon completing its execution successfully
