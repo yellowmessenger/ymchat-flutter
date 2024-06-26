@@ -37,5 +37,5 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.yellowmessenger:YMChatbot-Android:v2.13.+'
+    implementation 'com.github.yellowmessenger:YMChatbot-Android:fix_disable_r8-SNAPSHOT'
 }
