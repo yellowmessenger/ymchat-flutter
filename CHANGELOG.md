@@ -1,6 +1,6 @@
 ## 2.14.0
 
-- `targetSdkVersion` and `compileSdkVersion` upgraded to 34
+- android `targetSdkVersion` and `compileSdkVersion` upgraded to 34
 
 ## 2.13.0
 
