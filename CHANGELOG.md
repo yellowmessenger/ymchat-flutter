@@ -1,3 +1,7 @@
+## 2.14.0
+
+- android `targetSdkVersion` and `compileSdkVersion` upgraded to 34
+
 ## 2.13.0
 
 - added `setThemeBotBubbleBackgroundColor` method to make change for background color for bot bubble
