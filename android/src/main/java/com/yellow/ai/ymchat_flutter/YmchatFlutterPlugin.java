@@ -143,6 +143,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "setThemeBotClickIcon":
                 setThemeBotClickIcon(call, result);
                 break;
+            case "setChatContainerTheme":
+                setChatContainerTheme(call, result);
+                break;
             default:
                 result.notImplemented();
                 break;
@@ -326,6 +329,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     public void setThemeBotClickIcon(MethodCall call, Result result) {
         String iconUrl = call.argument("iconUrl");
         ymChatService.setThemeBotClickIcon(iconUrl);
+        result.success(true);
+    }
+
+    public void setChatContainerTheme(MethodCall call, Result result) {
+        String theme = call.argument("theme");
+        ymChatService.setChatContainerTheme(theme);
         result.success(true);
     }
 

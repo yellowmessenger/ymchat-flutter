@@ -121,6 +121,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setThemeBotClickIcon":
                 setThemeBotClickIcon(call:call,result:result);
                 break;
+            case "setChatContainerTheme":
+                setChatContainerTheme(call:call,result:result);
+                break;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -298,6 +301,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     private static func setThemeBotClickIcon(call: FlutterMethodCall, result: FlutterResult){
         let iconUrl:String = getRequiredParamater(parameter: "iconUrl", call: call)
         ymConfig?.theme.botClickIcon = iconUrl;
+        result(true);
+    }
+
+    private static func setChatContainerTheme(call: FlutterMethodCall, result: FlutterResult){
+        let theme:String = getRequiredParamater(parameter: "theme", call: call)
+        ymConfig?.theme.chatBotTheme = theme;
         result(true);
     }
 
