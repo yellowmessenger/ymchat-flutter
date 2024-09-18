@@ -1,3 +1,7 @@
+## 2.15.0
+
+- added `setChatContainerTheme` method to set theme for chat container
+
 ## 2.14.0
 
 - android `targetSdkVersion` and `compileSdkVersion` upgraded to 34

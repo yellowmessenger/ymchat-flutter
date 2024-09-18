@@ -276,4 +276,8 @@ public class YmChatService {
     public void setThemeBotClickIcon(String iconUrl) {
         ymChat.config.theme.botClickIcon = iconUrl;
     }
+
+    public void setChatContainerTheme(String theme) {
+        ymChat.config.theme.chatBotTheme = theme;
+    }
 }

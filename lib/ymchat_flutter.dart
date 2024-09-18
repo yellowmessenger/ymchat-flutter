@@ -200,8 +200,8 @@ class YmChat {
   }
 
   static Future<bool> setThemeBotBubbleBackgroundColor(String color) async {
-    bool isThemeBotBubbleBackgroundColorAssigned =
-        await _channel.invokeMethod('setThemeBotBubbleBackgroundColor', {"color": color});
+    bool isThemeBotBubbleBackgroundColorAssigned = await _channel
+        .invokeMethod('setThemeBotBubbleBackgroundColor', {"color": color});
     return isThemeBotBubbleBackgroundColorAssigned;
   }
 
@@ -214,6 +214,12 @@ class YmChat {
   static Future<bool> setThemeBotClickIcon(String iconUrl) async {
     bool isThemeBotClickIconAssigned = await _channel
         .invokeMethod('setThemeBotClickIcon', {"iconUrl": iconUrl});
+    return isThemeBotClickIconAssigned;
+  }
+
+  static Future<bool> setChatContainerTheme(String theme) async {
+    bool isThemeBotClickIconAssigned =
+        await _channel.invokeMethod('setChatContainerTheme', {"theme": theme});
     return isThemeBotClickIconAssigned;
   }
 }
