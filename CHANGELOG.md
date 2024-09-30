@@ -1,3 +1,7 @@
+## 2.16.0
+
+- iOS sdk `YMChat` updated to 1.20
+
 ## 2.15.0
 
 - added `setChatContainerTheme` method to set theme for chat container
