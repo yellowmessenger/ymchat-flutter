@@ -127,6 +127,12 @@ class YmChat {
     return isMicBackgroundColorSet;
   }
 
+  static Future<bool> setMicButtonToStatic() async {
+    bool isMicButtonSetToStatic =
+        await _channel.invokeMethod('setMicButtonToStatic');
+    return isMicButtonSetToStatic;
+  }
+
   static Future<bool> setDisableActionsOnLoad(
       bool shouldDisableActionsOnLoad) async {
     bool isDisableActionsOnLoad = await _channel.invokeMethod(

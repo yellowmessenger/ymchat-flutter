@@ -116,7 +116,7 @@ public class YmChatService {
     }
 
     public void setEnableSpeech(Boolean shouldEnableSpeech) {
-        ymChat.config.enableSpeech = shouldEnableSpeech;
+        ymChat.config.speechConfig.enableSpeech = shouldEnableSpeech;
     }
 
     public void setAuthenticationToken(String authToken) {
@@ -170,11 +170,15 @@ public class YmChatService {
     }
 
     public void setMicIconColor(String color) {
-        ymChat.config.enableSpeechConfig.fabIconColor = color;
+        ymChat.config.speechConfig.fabIconColor = color;
     }
 
     public void setMicBackgroundColor(String color) {
-        ymChat.config.enableSpeechConfig.fabBackgroundColor = color;
+        ymChat.config.speechConfig.fabBackgroundColor = color;
+    }
+
+    public void setMicButtonToStatic() {
+        ymChat.config.speechConfig.isButtonMovable = false;
     }
 
     public void setDisableActionsOnLoad(Boolean shouldDisableActionsOnLoad) {

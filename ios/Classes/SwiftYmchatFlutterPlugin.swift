@@ -76,6 +76,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setMicBackgroundColor":
                 self.setMicBackgroundColor(call:call,result:result);
                 break;
+            case "setMicButtonToStatic":
+                self.setMicButtonToStatic(call:call,result:result);
+                break;
             case "setDisableActionsOnLoad":
                 self.setDisableActionsOnLoad(call:call,result:result);
                 return;
@@ -220,7 +223,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     }
     private static func setEnableSpeech(call: FlutterMethodCall, result: FlutterResult){
         let shouldEnableSpeech:Bool = getRequiredParamater(parameter: "shouldEnableSpeech", call: call)
-        ymConfig?.enableSpeech = shouldEnableSpeech;
+        ymConfig?.speechConfig.enableSpeech = shouldEnableSpeech;
         result(true);
     }
     private static func setAuthenticationToken(call: FlutterMethodCall, result: FlutterResult){
@@ -366,13 +369,18 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     
     private static func setMicIconColor(call: FlutterMethodCall, result: FlutterResult){
         let color:String = getRequiredParamater(parameter: "color", call: call)
-        ymConfig?.enableSpeechConfig.fabIconColor = hexStringToUIColor(hex: color);
+        ymConfig?.speechConfig.fabIconColor = hexStringToUIColor(hex: color);
         result(true);
     }
 
     private static func setMicBackgroundColor(call: FlutterMethodCall, result: FlutterResult){
         let color:String = getRequiredParamater(parameter: "color", call: call)
-        ymConfig?.enableSpeechConfig.fabBackgroundColor = hexStringToUIColor(hex: color);
+        ymConfig?.speechConfig.fabBackgroundColor = hexStringToUIColor(hex: color);
+        result(true);
+    }
+
+    private static func setMicButtonToStatic(call: FlutterMethodCall, result: FlutterResult){
+        ymConfig?.speechConfig.isButtonMovable = false;
         result(true);
     }
 
