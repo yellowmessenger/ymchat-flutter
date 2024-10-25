@@ -177,8 +177,8 @@ public class YmChatService {
         ymChat.config.speechConfig.fabBackgroundColor = color;
     }
 
-    public void setMicButtonToStatic() {
-        ymChat.config.speechConfig.isButtonMovable = false;
+    public void setMicButtonMovable(Boolean shouldMicButtonMovable) {
+        ymChat.config.speechConfig.isButtonMovable = shouldMicButtonMovable;
     }
 
     public void setDisableActionsOnLoad(Boolean shouldDisableActionsOnLoad) {

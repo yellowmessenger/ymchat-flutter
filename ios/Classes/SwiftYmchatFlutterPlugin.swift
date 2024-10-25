@@ -76,8 +76,8 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setMicBackgroundColor":
                 self.setMicBackgroundColor(call:call,result:result);
                 break;
-            case "setMicButtonToStatic":
-                self.setMicButtonToStatic(call:call,result:result);
+            case "setMicButtonMovable":
+                self.setMicButtonMovable(call:call,result:result);
                 break;
             case "setDisableActionsOnLoad":
                 self.setDisableActionsOnLoad(call:call,result:result);
@@ -379,8 +379,10 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         result(true);
     }
 
-    private static func setMicButtonToStatic(call: FlutterMethodCall, result: FlutterResult){
-        ymConfig?.speechConfig.isButtonMovable = false;
+    private static func setMicButtonMovable(call: FlutterMethodCall, result: FlutterResult){
+        let shouldMicButtonMovable:Bool = getRequiredParamater(parameter: "shouldMicButtonMovable", call: call)
+        print("shouldMicButtonMovable", shouldMicButtonMovable);
+        ymConfig?.speechConfig.isButtonMovable = shouldMicButtonMovable;
         result(true);
     }
 
