@@ -37,5 +37,5 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.yellowmessenger:YMChatbot-Android:v2.15.0'
+    implementation 'com.github.yellowmessenger:YMChatbot-Android:v2.17.0'
 }

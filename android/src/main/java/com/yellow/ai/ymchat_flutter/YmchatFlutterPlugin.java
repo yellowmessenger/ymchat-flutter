@@ -98,6 +98,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "setMicBackgroundColor":
                 setMicBackgroundColor(call, result);
                 break;
+            case "setMicButtonMovable":
+                setMicButtonMovable(call, result);
+                break;
             case "setDisableActionsOnLoad":
                 setDisableActionsOnLoad(call, result);
                 break;
@@ -214,6 +217,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     private void setMicBackgroundColor(MethodCall call, Result result) {
         String color = call.argument("color");
         ymChatService.setMicBackgroundColor(color);
+        result.success(true);
+    }
+
+    private void setMicButtonMovable(MethodCall call, Result result) {
+        Boolean shouldMicButtonMovable = call.argument("shouldMicButtonMovable");
+        ymChatService.setMicButtonMovable(shouldMicButtonMovable);
         result.success(true);
     }
 
