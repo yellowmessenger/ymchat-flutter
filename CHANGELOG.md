@@ -1,3 +1,7 @@
+## 2.17.0
+
+- added `setMicButtonMovable` method to set mic button as movable or static
+
 ## 2.16.0
 
 - iOS sdk `YMChat` updated to 1.20
