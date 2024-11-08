@@ -24,6 +24,8 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
+    namespace = "com.yellow.ai.ymchat_flutter"
+
     compileSdkVersion 34
 
     compileOptions {
