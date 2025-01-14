@@ -1,3 +1,7 @@
+## 2.18.0-1.beta
+
+- package updated to comply with Google Play's new Policy
+
 ## 2.17.0
 
 - added `setMicButtonMovable` method to set mic button as movable or static
