@@ -1,3 +1,6 @@
+## 2.18.0
+- package updated to remove storage permissions in Android to comply with Google Play's new Policy
+
 ## 2.17.0
 
 - added `setMicButtonMovable` method to set mic button as movable or static
