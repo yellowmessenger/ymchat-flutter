@@ -1,3 +1,6 @@
+## 2.18.1
+- package updated to support Android's newer gradle versions
+
 ## 2.18.0
 - package updated to remove storage permissions in Android to comply with Google Play's new Policy
 
