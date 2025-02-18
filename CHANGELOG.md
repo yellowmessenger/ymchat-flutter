@@ -1,3 +1,6 @@
+## 2.18.2
+- package updated for an andriod bug fix. Device location status is now checked before invoking GeolocationPermissions callback when the location permission is granted by the user
+
 ## 2.18.1
 - package updated to support Android's newer gradle versions
 
