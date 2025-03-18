@@ -1,3 +1,6 @@
+## 2.18.3
+- package updated for an andriod bug fix. There was a memory leak mainly because botCloseEventListener wasn't de-initialized earlier and was retaining references to the fragment
+
 ## 2.18.2
 - package updated for an andriod bug fix. Device location status is now checked before invoking GeolocationPermissions callback when the location permission is granted by the user
 
