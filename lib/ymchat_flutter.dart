@@ -182,6 +182,14 @@ class YmChat {
     return isBotReloaded;
   }
 
+  static Future<bool> setOpenLinkExternally(
+      bool shouldOpenLinkExternally) async {
+    bool isOpenLinkExternallySet = await _channel.invokeMethod(
+        'setOpenLinkExternally',
+        {"shouldOpenLinkExternally": shouldOpenLinkExternally});
+    return isOpenLinkExternallySet;
+  }
+
   static Future<bool> setThemeBotName(String name) async {
     bool isThemeBotNameAssigned =
         await _channel.invokeMethod('setThemeBotName', {"name": name});

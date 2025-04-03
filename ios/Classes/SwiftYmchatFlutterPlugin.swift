@@ -103,6 +103,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "sendEventToBot":
                 sendEventToBot(call:call,result:result);
                 break;
+            case "setOpenLinkExternally":
+                setOpenLinkExternally(call:call,result:result);
+                break;
             case "setThemeBotName":
                 setThemeBotName(call:call,result:result);
                 break;
@@ -262,6 +265,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     }
     private static func closeBot( result: FlutterResult){
         YMChat.shared.closeBot();
+        result(true);
+    }
+
+    private static func setOpenLinkExternally(call: FlutterMethodCall, result: FlutterResult){
+        let shouldOpenLinkExternally:Bool = getRequiredParamater(parameter: "shouldOpenLinkExternally", call: call)
+        ymConfig?.shouldOpenLinkExternally = shouldOpenLinkExternally;
         result(true);
     }
     
