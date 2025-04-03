@@ -125,6 +125,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "sendEventToBot":
                 sendEventToBot(call, result);
                 break;
+            case "setOpenLinkExternally":
+                setOpenLinkExternally(call, result);
+                break;
             case "setThemeBotName":
                 setThemeBotName(call, result);
                 break;
@@ -296,6 +299,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     public void setCustomLoaderURL(MethodCall call, Result result) {
         String customURL = call.argument("customLoaderURL");
         ymChatService.setCustomLoaderUrl(customURL);
+        result.success(true);
+    }
+
+    public void setOpenLinkExternally(MethodCall call, Result result) {
+        Boolean shouldOpenLinkExternally = call.argument("shouldOpenLinkExternally");
+        ymChatService.setOpenLinkExternally(shouldOpenLinkExternally);
         result.success(true);
     }
 

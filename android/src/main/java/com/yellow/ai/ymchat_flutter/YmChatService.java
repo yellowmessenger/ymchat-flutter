@@ -253,6 +253,10 @@ public class YmChatService {
         ymChat.reloadBot();
     }
 
+    public void setOpenLinkExternally(boolean shouldOpenLinkExternally) {
+       ymChat.config.shouldOpenLinkExternally = shouldOpenLinkExternally;
+    }
+
     public void setThemeBotName(String name) {
         ymChat.config.theme.botName = name;
     }
