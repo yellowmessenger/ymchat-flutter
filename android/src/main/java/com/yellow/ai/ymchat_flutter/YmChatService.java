@@ -288,4 +288,8 @@ public class YmChatService {
     public void setChatContainerTheme(String theme) {
         ymChat.config.theme.chatBotTheme = theme;
     }
+
+    public void setThemeLinkColor(String color) {
+        ymChat.config.theme.linkColor = color;
+    }
 }
