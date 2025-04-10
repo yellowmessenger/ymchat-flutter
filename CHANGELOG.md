@@ -1,6 +1,3 @@
-## 2.20.0
-- added `setThemeLinkColor` method to set the link color in chatbot.
-
 ## 2.19.0
 - Added an option that prevents links from opening in the browser. Use `setOpenLinkExternally` to prevent opening url in new window, and listen to `url-clicked` event in `YMChatEvent` to get the url of the link clicked.
 

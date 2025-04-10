@@ -237,10 +237,4 @@ class YmChat {
         await _channel.invokeMethod('setChatContainerTheme', {"theme": theme});
     return isThemeBotClickIconAssigned;
   }
-
-  static Future<bool> setThemeLinkColor(String color) async {
-    bool isThemeLinkColorAssigned =
-        await _channel.invokeMethod('setThemeLinkColor', {"color": color});
-    return isThemeLinkColorAssigned;
-  }
 }
