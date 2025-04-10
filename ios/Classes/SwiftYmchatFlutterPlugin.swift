@@ -130,6 +130,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setChatContainerTheme":
                 setChatContainerTheme(call:call,result:result);
                 break;
+            case "setThemeLinkColor":
+                setThemeLinkColor(call:call,result:result);
+                break;
             default:
                 result(FlutterMethodNotImplemented)
                 return;
@@ -319,6 +322,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     private static func setChatContainerTheme(call: FlutterMethodCall, result: FlutterResult){
         let theme:String = getRequiredParamater(parameter: "theme", call: call)
         ymConfig?.theme.chatBotTheme = theme;
+        result(true);
+    }
+
+    private static func setThemeLinkColor(call: FlutterMethodCall, result: FlutterResult){
+        let color:String = getRequiredParamater(parameter: "color", call: call)
+        ymConfig?.theme.linkColor = color;
         result(true);
     }
 

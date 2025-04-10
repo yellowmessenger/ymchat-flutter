@@ -152,6 +152,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "setChatContainerTheme":
                 setChatContainerTheme(call, result);
                 break;
+            case "setThemeLinkColor":
+                setThemeLinkColor(call, result);
+                break;
             default:
                 result.notImplemented();
                 break;
@@ -353,6 +356,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     public void setChatContainerTheme(MethodCall call, Result result) {
         String theme = call.argument("theme");
         ymChatService.setChatContainerTheme(theme);
+        result.success(true);
+    }
+
+    public void setThemeLinkColor(MethodCall call, Result result) {
+        String color = call.argument("color");
+        ymChatService.setThemeLinkColor(color);
         result.success(true);
     }
 
