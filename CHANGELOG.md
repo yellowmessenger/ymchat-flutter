@@ -1,4 +1,4 @@
-## 2.20.0
+## 2.20.1
 - added `setThemeLinkColor` method to set the link color in chatbot.
 
 ## 2.19.0
