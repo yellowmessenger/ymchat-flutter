@@ -327,7 +327,7 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
 
     private static func setThemeLinkColor(call: FlutterMethodCall, result: FlutterResult){
         let color:String = getRequiredParamater(parameter: "color", call: call)
-        ymConfig?.theme.linkColor = color;
+        ymConfig?.theme.linkColor = hexStringToUIColor(hex: color);
         result(true);
     }
 
