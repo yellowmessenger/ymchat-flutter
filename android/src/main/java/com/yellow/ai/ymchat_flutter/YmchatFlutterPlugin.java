@@ -29,6 +29,8 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
     private EventChannel ymCloseBotEventChannel;
 
+    private EventChannel ymBotLoadFailedEventChannel;
+
     private YmChatService ymChatService;
 
     private Context flutterContext;
@@ -43,8 +45,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
         ymEventChannel = new EventChannel(flutterPluginBinding.getBinaryMessenger(), "YMChatEvent");
         ymCloseBotEventChannel = new EventChannel(flutterPluginBinding.getBinaryMessenger(), "YMBotCloseEvent");
+        ymBotLoadFailedEventChannel = new EventChannel(flutterPluginBinding.getBinaryMessenger(), "YMBotLoadFailedEvent");
 
-        ymChatService = new YmChatService(ymEventChannel, ymCloseBotEventChannel);
+        ymChatService = new YmChatService(ymEventChannel, ymCloseBotEventChannel, ymBotLoadFailedEventChannel);
     }
 
     @Override

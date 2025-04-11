@@ -8,7 +8,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     private static var ymEventHandler: YmChatFlutterStreamHandler  = YmChatFlutterStreamHandler();
     
     private static var ymCloseEventHandler: YmChatFlutterStreamHandler = YmChatFlutterStreamHandler();
-    
+
+    private static var ymBotLoadFailedEventHandler: YmChatFlutterStreamHandler = YmChatFlutterStreamHandler();
+
     private static var localDelegate: CustomYmChatDelegate?
 
     public static func register(with registrar: FlutterPluginRegistrar) {
@@ -18,18 +20,21 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         let ymEventChannel:FlutterEventChannel = FlutterEventChannel(name:"YMChatEvent",binaryMessenger: registrar.messenger());
         
         let ymCloseEventChannel:FlutterEventChannel = FlutterEventChannel(name:"YMBotCloseEvent",binaryMessenger: registrar.messenger());
-        
+
+        let ymBotLoadFailedEventChannel:FlutterEventChannel = FlutterEventChannel(name:"YMBotLoadFailedEvent",binaryMessenger: registrar.messenger());
+
         let instance = SwiftYmchatFlutterPlugin()
         
         registrar.addMethodCallDelegate(instance, channel: channel)
         ymEventChannel.setStreamHandler(ymEventHandler)
         ymCloseEventChannel.setStreamHandler(ymCloseEventHandler)
-        
+        ymBotLoadFailedEventChannel.setStreamHandler(ymBotLoadFailedEventHandler)
+
         channel.setMethodCallHandler({
             (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
             switch(call.method){
             case "setBotId":
-                self.setBotId(call: call,result: result, ymEventChannel: ymEventChannel, ymCloseEventChannel:ymCloseEventChannel);
+                self.setBotId(call: call,result: result, ymEventChannel: ymEventChannel, ymCloseEventChannel:ymCloseEventChannel, ymBotLoadFailedEventChannel: ymBotLoadFailedEventChannel);
                 return;
             case "setDeviceToken":
                 self.setDeviceToken(call: call,result: result);
@@ -211,10 +216,10 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
         }
     }
     
-    private static func setBotId(call: FlutterMethodCall, result: FlutterResult, ymEventChannel: FlutterEventChannel, ymCloseEventChannel: FlutterEventChannel){
+    private static func setBotId(call: FlutterMethodCall, result: FlutterResult, ymEventChannel: FlutterEventChannel, ymCloseEventChannel: FlutterEventChannel, ymBotLoadFailedEventChannel: FlutterEventChannel){
         let botId:String = getRequiredParamater(parameter: "botId", call: call)
         
-        localDelegate = CustomYmChatDelegate(ymEventHandler: ymEventHandler, ymCloseEventHandler: ymCloseEventHandler)
+        localDelegate = CustomYmChatDelegate(ymEventHandler: ymEventHandler, ymCloseEventHandler: ymCloseEventHandler, ymBotLoadFailedEventHandler: ymBotLoadFailedEventHandler);
         
         YMChat.shared.delegate = localDelegate;
         
@@ -464,10 +469,12 @@ class CustomYmChatDelegate: NSObject,YMChatDelegate{
     
     var ymEventHandler: YmChatFlutterStreamHandler?
     var ymCloseEventHandler: YmChatFlutterStreamHandler?
+    var ymBotLoadFailedEventHandler: YmChatFlutterStreamHandler?
     
-    init(ymEventHandler: YmChatFlutterStreamHandler?,ymCloseEventHandler: YmChatFlutterStreamHandler?){
+    init(ymEventHandler: YmChatFlutterStreamHandler?, ymCloseEventHandler: YmChatFlutterStreamHandler?, ymBotLoadFailedEventHandler: YmChatFlutterStreamHandler?) {
         self.ymEventHandler = ymEventHandler;
         self.ymCloseEventHandler = ymCloseEventHandler;
+        self.ymBotLoadFailedEventHandler = ymBotLoadFailedEventHandler;
     }
     
     func onEventFromBot(response: YMBotEventResponse) {
@@ -479,5 +486,9 @@ class CustomYmChatDelegate: NSObject,YMChatDelegate{
     
     func onBotClose() {
         ymCloseEventHandler?.sendEvent(event: true);
+    }
+
+    func onBotLoadFailed() {
+        ymBotLoadFailedEventHandler?.sendEvent(event: true);
     }
 }

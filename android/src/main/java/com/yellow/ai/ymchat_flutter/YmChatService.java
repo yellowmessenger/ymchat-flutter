@@ -29,13 +29,14 @@ public class YmChatService {
     final String data = "data";
 
     private HashMap<String, Object> payloadData = new HashMap<>();
-    private EventChannel.EventSink ymEventSink, closeEventSink;
-    private EventChannel ymEventChannel, ymCloseBotEventChannel;
+    private EventChannel.EventSink ymEventSink, closeEventSink, botLoadFailedEventSink;
+    private EventChannel ymEventChannel, ymCloseBotEventChannel, ymBotLoadFailedEventChannel;
 
-    YmChatService(EventChannel ymEventChannel, EventChannel ymCloseBotEventChannel) {
+    YmChatService(EventChannel ymEventChannel, EventChannel ymCloseBotEventChannel, EventChannel ymBotLoadFailedEventChannel) {
         this.ymChat = YMChat.getInstance();
         this.ymEventChannel = ymEventChannel;
         this.ymCloseBotEventChannel = ymCloseBotEventChannel;
+        this.ymBotLoadFailedEventChannel = ymBotLoadFailedEventChannel;
         this.ymEventChannel.setStreamHandler(new EventChannel.StreamHandler() {
             @Override
             public void onListen(Object arguments, EventChannel.EventSink events) {
@@ -57,6 +58,18 @@ public class YmChatService {
             @Override
             public void onCancel(Object arguments) {
                 closeEventSink = null;
+            }
+        });
+
+        this.ymBotLoadFailedEventChannel.setStreamHandler(new EventChannel.StreamHandler() {
+            @Override
+            public void onListen(Object arguments, EventChannel.EventSink events) {
+                botLoadFailedEventSink = events;
+            }
+
+            @Override
+            public void onCancel(Object arguments) {
+                botLoadFailedEventSink = null;
             }
         });
     }
@@ -95,6 +108,15 @@ public class YmChatService {
             }
         });
 
+        ymChat.onBotLoadFailed(() -> {
+            try {
+                if (botLoadFailedEventSink != null) {
+                    botLoadFailedEventSink.success(true);
+                }
+            } catch (Exception e) {
+
+            }
+        });
     }
 
     public void startChatbot(MethodCall call, MethodChannel.Result result, Context context) {
