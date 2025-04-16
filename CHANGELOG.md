@@ -1,3 +1,6 @@
+## 2.21.0
+- added `YMBotLoadFailedEvent` event channel to let user know that bot load failed due to certain technical issue.
+
 ## 2.20.1
 - added `setThemeLinkColor` method to set the link color in chatbot.
 
