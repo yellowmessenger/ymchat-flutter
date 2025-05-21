@@ -1,3 +1,6 @@
+## 2.21.1
+- package updated for an andriod bug fix. Earlier chatbot UI was overlapping the system bars due to edge to edge layout implementation when target SDK is set to 35 or higher, and is running Android 15 or higher device.
+
 ## 2.21.0
 - added `YMBotLoadFailedEvent` event channel to let user know that bot load failed due to certain technical issue.
 
