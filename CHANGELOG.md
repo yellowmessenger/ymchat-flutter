@@ -1,3 +1,6 @@
+## 2.22.0
+- package updated to support Android target API level 35 for compatibility with latest Android versions.
+
 ## 2.21.1
 - package updated for an andriod bug fix. Earlier chatbot UI was overlapping the system bars due to edge to edge layout implementation when target SDK is set to 35 or higher, and is running Android 15 or higher device.
 
