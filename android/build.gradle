@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools.build:gradle:8.6.0'
     }
 }
 
@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 
 android {
     namespace 'com.yellow.ai.ymchat_flutter'
-    compileSdkVersion 34
+    compileSdk 35
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -38,5 +38,5 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.yellowmessenger:YMChatbot-Android:v2.21.1'
+    implementation 'com.github.yellowmessenger:YMChatbot-Android:v2.22.0'
 }
