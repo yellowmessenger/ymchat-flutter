@@ -99,6 +99,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "reloadBot":
                 self.reloadBot(result:result);
                 return;
+            case "stopVoiceMode":
+                self.stopVoiceMode(result:result);
+                return;
             case "revalidateToken":
                 revalidateToken(call:call,result:result);
                 break;
@@ -273,6 +276,11 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     }
     private static func closeBot( result: FlutterResult){
         YMChat.shared.closeBot();
+        result(true);
+    }
+
+    private static func stopVoiceMode(result: FlutterResult){
+        YMChat.shared.stopVoiceMode();
         result(true);
     }
 

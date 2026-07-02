@@ -119,6 +119,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "reloadBot":
                 reloadBot(result);
                 break;
+            case "stopVoiceMode":
+                stopVoiceMode(result);
+                break;
             case "revalidateToken":
                 revalidateToken(call, result);
                 break;
@@ -252,6 +255,11 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
 
     public void reloadBot(Result result) {
         ymChatService.reloadBot();
+        result.success(true);
+    }
+
+    public void stopVoiceMode(Result result) {
+        ymChatService.stopVoiceMode();
         result.success(true);
     }
 
