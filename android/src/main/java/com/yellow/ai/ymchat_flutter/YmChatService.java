@@ -275,6 +275,10 @@ public class YmChatService {
         ymChat.reloadBot();
     }
 
+    public void stopVoiceMode() {
+        ymChat.stopVoiceMode();
+    }
+
     public void setOpenLinkExternally(boolean shouldOpenLinkExternally) {
        ymChat.config.shouldOpenLinkExternally = shouldOpenLinkExternally;
     }

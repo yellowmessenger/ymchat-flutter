@@ -182,6 +182,12 @@ class YmChat {
     return isBotReloaded;
   }
 
+  static Future<bool> stopVoiceMode() async {
+    bool isVoiceModeStopped =
+        await _channel.invokeMethod('stopVoiceMode');
+    return isVoiceModeStopped;
+  }
+
   static Future<bool> setOpenLinkExternally(
       bool shouldOpenLinkExternally) async {
     bool isOpenLinkExternallySet = await _channel.invokeMethod(

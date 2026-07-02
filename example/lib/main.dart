@@ -53,16 +53,13 @@ class _MyAppState extends State<MyApp> {
     YmChat.setEnableSpeech(true);
 
     // using new widget
-    YmChat.setVersion(2);
+    YmChat.setVersion(3);
 
     // Setting statusbar color
     YmChat.setStatusBarColor("#ff0000");
 
     // Setting close button color
     YmChat.setCloseButtonColor("#0400ff");
-
-    // Using lite version
-    YmChat.useLiteVersion(true);
 
     // Listening to bot events
     EventChannel _ymEventChannel = const EventChannel("YMChatEvent");
