@@ -1,3 +1,6 @@
+## 3.0.0
+- Added support for chatbot Version 3 (V3 widget). Upgraded native SDKs: Android YMChatbot-Android v3.3.0, iOS YMChat 2.2.0. Call `setVersion(3)` before `startChatbot()` to use it.
+
 ## 2.22.0
 - package updated to support Android target API level 35 for compatibility with latest Android versions.
 
