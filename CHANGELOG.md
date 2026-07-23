@@ -1,3 +1,6 @@
+## 3.1.2
+- Security fix: upgraded native Android SDK to YMChatbot-Android v3.3.2, closing a residual WebView popup (`window.open()`) URL-scheme gap left over from the v3.3.1 fix. No Dart API changes.
+
 ## 3.1.1
 - Security fix: upgraded native SDKs to pick up a WebView URL-handling fix — Android YMChatbot-Android v3.3.1, iOS YMChat 2.2.1. No Dart API changes.
 
