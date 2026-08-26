@@ -183,6 +183,14 @@ class YmChat {
     return isUsingLiteVersion;
   }
 
+  /// Android only — restricts the attachment picker to the given sources
+  /// (`'camera'`, `'file'`, or both). Has no effect on iOS.
+  static Future<bool> setAllowedUploadSources(List<String> sources) async {
+    bool isAllowedUploadSourcesSet = await _channel
+        .invokeMethod('setAllowedUploadSources', {"sources": sources});
+    return isAllowedUploadSourcesSet;
+  }
+
   static Future<bool> reloadBot() async {
     bool isBotReloaded = await _channel.invokeMethod('reloadBot');
     return isBotReloaded;
