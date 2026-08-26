@@ -97,6 +97,12 @@ class YmChat {
     return isVersionAssigned;
   }
 
+  static Future<bool> setActivationMode(String mode) async {
+    bool isActivationModeAssigned =
+        await _channel.invokeMethod('setActivationMode', {"mode": mode});
+    return isActivationModeAssigned;
+  }
+
   static Future<bool> setCustomLoaderURL(String customURL) async {
     bool isCustomLoaderURLSet = await _channel
         .invokeMethod('setCustomLoaderURL', {"customLoaderURL": customURL});

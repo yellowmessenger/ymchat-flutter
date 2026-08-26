@@ -86,6 +86,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "setVersion":
                 setVersion(call, result);
                 break;
+            case "setActivationMode":
+                setActivationMode(call, result);
+                break;
             case "setCustomLoaderURL":
                 setCustomLoaderURL(call, result);
                 break;
@@ -307,6 +310,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     private void setVersion(MethodCall call, Result result) {
         int version = call.argument("version");
         ymChatService.setVersion(version);
+        result.success(true);
+    }
+
+    private void setActivationMode(MethodCall call, Result result) {
+        String mode = call.argument("mode");
+        ymChatService.setActivationMode(mode);
         result.success(true);
     }
 

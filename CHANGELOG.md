@@ -1,3 +1,6 @@
+## 3.3.0
+- **Activation Mode** — lets the host app open the widget directly into voice mode instead of chat, via `YmChat.setActivationMode('voice')` (or `'chat'`, the default). Bridges the native SDKs' `activationMode` config to Dart for the first time (iOS `YMChat` since 2.1.0, Android `YMChatbot-Android` since v3.1.0 — both already pinned by this package).
+
 ## 3.2.0
 - Upgraded native SDKs to pick up automatic screen-awake handling during Voice Mode — Android YMChatbot-Android v3.4.0, iOS YMChat 2.3.0. The screen now stays on for the duration of an active voice conversation and returns to normal on call end; entirely internal to the native SDKs, no Dart API changes.
 

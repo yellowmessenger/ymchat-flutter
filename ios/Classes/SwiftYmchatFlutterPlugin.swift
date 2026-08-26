@@ -66,6 +66,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setVersion":
                 self.setVersion(call:call, result:result);
                 return;
+            case "setActivationMode":
+                self.setActivationMode(call:call, result:result);
+                return;
             case "setCustomLoaderURL":
                 self.setCustomLoaderURL(call:call,result:result);
                 return;
@@ -368,6 +371,12 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     private static func setVersion(call: FlutterMethodCall, result: FlutterResult){
         let version:Int = getRequiredParamater(parameter: "version", call: call);
         ymConfig?.version = version;
+        result(true);
+    }
+
+    private static func setActivationMode(call: FlutterMethodCall, result: FlutterResult){
+        let mode:String = getRequiredParamater(parameter: "mode", call: call);
+        ymConfig?.activationMode = mode == "voice" ? .voice : .chat;
         result(true);
     }
     
