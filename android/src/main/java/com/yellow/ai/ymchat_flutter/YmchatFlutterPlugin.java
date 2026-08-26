@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import java.util.HashMap;
+import java.util.List;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.EventChannel;
@@ -88,6 +89,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
                 break;
             case "setActivationMode":
                 setActivationMode(call, result);
+                break;
+            case "setAllowedUploadSources":
+                setAllowedUploadSources(call, result);
                 break;
             case "setCustomLoaderURL":
                 setCustomLoaderURL(call, result);
@@ -316,6 +320,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     private void setActivationMode(MethodCall call, Result result) {
         String mode = call.argument("mode");
         ymChatService.setActivationMode(mode);
+        result.success(true);
+    }
+
+    private void setAllowedUploadSources(MethodCall call, Result result) {
+        List<String> sources = call.argument("sources");
+        ymChatService.setAllowedUploadSources(sources);
         result.success(true);
     }
 

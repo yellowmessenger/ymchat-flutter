@@ -1,3 +1,6 @@
+## 3.4.0
+- **Configurable Upload Sources** (Android only) — restricts the attachment picker to specific sources via `YmChat.setAllowedUploadSources(['camera'])` (or `['file']`, or both). Bridges the native Android SDK's `allowedUploadSources` config to Dart for the first time (`YMChatbot-Android` since v3.3.0, already pinned by this package). No iOS equivalent exists natively, so this call has no effect on iOS.
+
 ## 3.3.0
 - **Activation Mode** — lets the host app open the widget directly into voice mode instead of chat, via `YmChat.setActivationMode('voice')` (or `'chat'`, the default). Bridges the native SDKs' `activationMode` config to Dart for the first time (iOS `YMChat` since 2.1.0, Android `YMChatbot-Android` since v3.1.0 — both already pinned by this package).
 

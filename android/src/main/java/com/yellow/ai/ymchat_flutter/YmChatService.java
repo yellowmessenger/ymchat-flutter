@@ -9,13 +9,16 @@ import com.yellowmessenger.ymchat.BotCloseEventListener;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
 import com.yellowmessenger.ymchat.models.YMActivationMode;
+import com.yellowmessenger.ymchat.models.YMUploadSource;
 import com.yellowmessenger.ymchat.models.YellowCallback;
 import com.yellowmessenger.ymchat.models.YellowDataCallback;
 import com.yellowmessenger.ymchat.models.YellowUnreadMessageResponse;
 import com.yellowmessenger.ymchat.models.YMEventModel;
 import com.yellowmessenger.ymchat.models.YMTheme;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.flutter.plugin.common.EventChannel;
@@ -182,6 +185,16 @@ public class YmChatService {
 
     public void setActivationMode(String mode) {
         ymChat.config.activationMode = "voice".equalsIgnoreCase(mode) ? YMActivationMode.VOICE : YMActivationMode.CHAT;
+    }
+
+    public void setAllowedUploadSources(List<String> sources) {
+        List<YMUploadSource> uploadSources = new ArrayList<>();
+        if (sources != null) {
+            for (String source : sources) {
+                uploadSources.add(YMUploadSource.valueOf(source.toUpperCase()));
+            }
+        }
+        ymChat.config.allowedUploadSources = uploadSources;
     }
 
     public void setCustomLoaderUrl(String url) {
