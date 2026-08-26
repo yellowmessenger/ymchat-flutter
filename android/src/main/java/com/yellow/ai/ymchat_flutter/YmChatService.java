@@ -8,6 +8,7 @@ import android.util.Log;
 import com.yellowmessenger.ymchat.BotCloseEventListener;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
+import com.yellowmessenger.ymchat.models.YMActivationMode;
 import com.yellowmessenger.ymchat.models.YellowCallback;
 import com.yellowmessenger.ymchat.models.YellowDataCallback;
 import com.yellowmessenger.ymchat.models.YellowUnreadMessageResponse;
@@ -177,6 +178,10 @@ public class YmChatService {
 
     public void setVersion(int version) {
         ymChat.config.version = version;
+    }
+
+    public void setActivationMode(String mode) {
+        ymChat.config.activationMode = "voice".equalsIgnoreCase(mode) ? YMActivationMode.VOICE : YMActivationMode.CHAT;
     }
 
     public void setCustomLoaderUrl(String url) {
