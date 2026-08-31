@@ -18,6 +18,12 @@ class YmChat {
     return isdeviceTokenAssigned;
   }
 
+  static Future<bool> setInitialUserMessage(String initialUserMessage) async {
+    bool isInitialUserMessageAssigned = await _channel.invokeMethod(
+        'setInitialUserMessage', {"initialUserMessage": initialUserMessage});
+    return isInitialUserMessageAssigned;
+  }
+
   static Future<bool> revalidateToken(String token, bool refreshSession) async {
     bool isRevalidateToken = await _channel.invokeMethod(
         "revalidateToken", {"token": token, "refreshSession": refreshSession});

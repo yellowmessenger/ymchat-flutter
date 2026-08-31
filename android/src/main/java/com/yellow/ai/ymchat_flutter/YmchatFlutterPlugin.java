@@ -60,6 +60,9 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
             case "setDeviceToken":
                 setDeviceToken(call, result);
                 break;
+            case "setInitialUserMessage":
+                setInitialUserMessage(call, result);
+                break;
             case "setEnableSpeech":
                 setEnableSpeech(call, result);
                 break;
@@ -273,6 +276,12 @@ public class YmchatFlutterPlugin implements FlutterPlugin, MethodCallHandler {
     public void setDeviceToken(MethodCall call, Result result) {
         String deviceToken = call.argument("deviceToken");
         ymChatService.setDeviceToken(deviceToken);
+        result.success(true);
+    }
+
+    public void setInitialUserMessage(MethodCall call, Result result) {
+        String initialUserMessage = call.argument("initialUserMessage");
+        ymChatService.setInitialUserMessage(initialUserMessage);
         result.success(true);
     }
 

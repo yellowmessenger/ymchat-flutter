@@ -141,6 +141,10 @@ public class YmChatService {
         ymChat.config.deviceToken = deviceToken;
     }
 
+    public void setInitialUserMessage(String initialUserMessage) {
+        ymChat.config.initialUserMessage = initialUserMessage;
+    }
+
     public void setEnableSpeech(Boolean shouldEnableSpeech) {
         ymChat.config.speechConfig.enableSpeech = shouldEnableSpeech;
     }

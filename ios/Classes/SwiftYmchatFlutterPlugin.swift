@@ -39,6 +39,9 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
             case "setDeviceToken":
                 self.setDeviceToken(call: call,result: result);
                 return;
+            case "setInitialUserMessage":
+                self.setInitialUserMessage(call: call,result: result);
+                return;
             case "setEnableSpeech":
                 self.setEnableSpeech(call: call,result: result);
                 return;
@@ -236,6 +239,11 @@ public class SwiftYmchatFlutterPlugin: NSObject, FlutterPlugin {
     private static func setDeviceToken(call: FlutterMethodCall, result: FlutterResult){
         let deviceToken:String = getRequiredParamater(parameter: "deviceToken", call: call)
         ymConfig?.deviceToken = deviceToken;
+        result(true);
+    }
+    private static func setInitialUserMessage(call: FlutterMethodCall, result: FlutterResult){
+        let initialUserMessage:String = getRequiredParamater(parameter: "initialUserMessage", call: call)
+        ymConfig?.initialUserMessage = initialUserMessage;
         result(true);
     }
     private static func setEnableSpeech(call: FlutterMethodCall, result: FlutterResult){
