@@ -1,3 +1,6 @@
+## 3.5.0
+- **Auto-Sent Initial User Message** — lets the host app automatically send a configured message as soon as the chat widget opens, rendered as a real outgoing user message, via `YmChat.setInitialUserMessage('...')`. Bridges the native SDKs' `initialUserMessage` config to Dart for the first time (`YMChatbot-Android` since v3.5.0, iOS `YMChat` since 2.4.0 — this package now requires those versions or newer).
+
 ## 3.4.0
 - **Configurable Upload Sources** (Android only) — restricts the attachment picker to specific sources via `YmChat.setAllowedUploadSources(['camera'])` (or `['file']`, or both). Bridges the native Android SDK's `allowedUploadSources` config to Dart for the first time (`YMChatbot-Android` since v3.3.0, already pinned by this package). No iOS equivalent exists natively, so this call has no effect on iOS.
 
