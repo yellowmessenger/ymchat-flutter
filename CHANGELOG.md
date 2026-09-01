@@ -1,3 +1,6 @@
+## 3.5.1
+- Upgraded native iOS SDK to pick up a WebView keyboard-resize fix — iOS `YMChat` 2.4.1. The embedded WKWebView now resizes when the on-screen keyboard opens, keeping input fields visible instead of being covered. No Dart API changes.
+
 ## 3.5.0
 - **Auto-Sent Initial User Message** — lets the host app automatically send a configured message as soon as the chat widget opens, rendered as a real outgoing user message, via `YmChat.setInitialUserMessage('...')`. Bridges the native SDKs' `initialUserMessage` config to Dart for the first time (`YMChatbot-Android` since v3.5.0, iOS `YMChat` since 2.4.0 — this package now requires those versions or newer).
 
