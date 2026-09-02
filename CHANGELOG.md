@@ -1,3 +1,6 @@
+## 3.5.2
+- Upgraded native Android SDK to pick up a text-to-speech fallback for the widget's Read aloud button — Android `YMChatbot-Android` 3.5.1. `android.webkit.WebView` doesn't implement `window.speechSynthesis`, so the button previously did nothing there; it now falls back to a native `TextToSpeech` bridge. No Dart API changes.
+
 ## 3.5.1
 - Upgraded native iOS SDK to pick up a WebView keyboard-resize fix — iOS `YMChat` 2.4.1. The embedded WKWebView now resizes when the on-screen keyboard opens, keeping input fields visible instead of being covered. No Dart API changes.
 
