@@ -1,3 +1,6 @@
+## 3.5.3
+- No functional change — validates the automated tag/CHANGELOG/GitHub Release/pub.dev-publish pipeline end-to-end (see #131).
+
 ## 3.5.2
 - Upgraded native Android SDK to pick up a text-to-speech fallback for the widget's Read aloud button — Android `YMChatbot-Android` 3.5.1. `android.webkit.WebView` doesn't implement `window.speechSynthesis`, so the button previously did nothing there; it now falls back to a native `TextToSpeech` bridge. No Dart API changes.
 
