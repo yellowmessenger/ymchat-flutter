@@ -6,10 +6,11 @@
 # "## X.Y.Z" / plain bullets style — no brackets, no date, no category), and
 # create the single combined commit release PRs have historically carried.
 #
-# This script does NOT tag, create the GitHub Release, or publish to pub.dev
-# — per repo convention, that happens automatically once the PR merges to
-# main (see .github/workflows/release.yml). Run this on your feature branch
-# before opening the PR.
+# This script does NOT tag or create the GitHub Release — per repo
+# convention, that happens automatically once the PR merges to main (see
+# .github/workflows/release.yml). Run this on your feature branch before
+# opening the PR. Publishing to pub.dev is still a manual `dart pub publish`
+# step for now (see release.yml's header comment for why).
 #
 # IMPORTANT: --android-dep/--ios-dep only touch the dependency *pin* lines.
 # They deliberately do NOT touch android/build.gradle's top-level `version
@@ -176,4 +177,4 @@ git commit -m "$COMMIT_MSG"
 
 echo ""
 echo "Done. Push this branch and open the PR as usual — merging to $INTEGRATION_BRANCH will"
-echo "automatically tag ${TAG}, publish the GitHub Release, and publish to pub.dev."
+echo "automatically tag ${TAG} and publish the GitHub Release (pub.dev publish is still manual)."
