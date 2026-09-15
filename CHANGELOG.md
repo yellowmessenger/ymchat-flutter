@@ -1,3 +1,6 @@
+## 3.5.4
+- Upgraded native Android SDK to fix the widget's "Read aloud" button — Android `YMChatbot-Android` 3.5.3. The button now switches to a stop button while a message is being spoken, a second tap stops playback instead of restarting the message from the beginning, and the button resets on its own when the message finishes. No Dart API changes.
+
 ## 3.5.3
 - No functional change — validates the automated tag/CHANGELOG/GitHub Release/pub.dev-publish pipeline end-to-end (see #131).
 
