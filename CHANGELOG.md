@@ -1,3 +1,6 @@
+## 3.5.5
+- Upgraded native Android SDK to stop the "Read aloud" button reading emoji out loud — Android `YMChatbot-Android` 3.5.4. Text-to-speech engines pronounce emoji by name, so "Your payment is confirmed 😊" was read as "...confirmed smiling face with smiling eyes". No Dart API changes.
+
 ## 3.5.4
 - Upgraded native Android SDK to fix the widget's "Read aloud" button — Android `YMChatbot-Android` 3.5.3. The button now switches to a stop button while a message is being spoken, a second tap stops playback instead of restarting the message from the beginning, and the button resets on its own when the message finishes. No Dart API changes.
 
