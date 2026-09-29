@@ -1,3 +1,6 @@
+## 3.5.6
+- Upgraded native Android SDK to fix a crash on init — Android `YMChatbot-Android` 3.5.5. `TextToSpeech.setLanguage()` could throw a `NullPointerException` on devices where the TTS engine invokes its init callback before the SDK's own field assignment completes. No Dart API changes.
+
 ## 3.5.5
 - Upgraded native Android SDK to stop the "Read aloud" button reading emoji out loud — Android `YMChatbot-Android` 3.5.4. Text-to-speech engines pronounce emoji by name, so "Your payment is confirmed 😊" was read as "...confirmed smiling face with smiling eyes". No Dart API changes.
 
