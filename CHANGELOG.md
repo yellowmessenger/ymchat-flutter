@@ -1,3 +1,6 @@
+## 3.5.7
+- Upgraded native iOS SDK to fix the close button not appearing on iOS 27 — iOS `YMChat` 2.4.3. The button now has a fixed size instead of collapsing to zero when its icon fails to load, and falls back to a system icon if the bundled one is missing. No Dart API changes.
+
 ## 3.5.6
 - Upgraded native Android SDK to fix a crash on init — Android `YMChatbot-Android` 3.5.5. `TextToSpeech.setLanguage()` could throw a `NullPointerException` on devices where the TTS engine invokes its init callback before the SDK's own field assignment completes. No Dart API changes.
 
