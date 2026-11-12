@@ -1,3 +1,6 @@
+## 3.5.8
+- Upgraded native iOS SDK to 2.4.4: "+" in payload values (e.g. emails like a+b@x.com) is now preserved instead of arriving as a space.
+
 ## 3.5.7
 - Upgraded native iOS SDK to fix the close button not appearing on iOS 27 — iOS `YMChat` 2.4.3. The button now has a fixed size instead of collapsing to zero when its icon fails to load, and falls back to a system icon if the bundled one is missing. No Dart API changes.
 
